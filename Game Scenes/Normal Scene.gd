@@ -42,10 +42,10 @@ func player_set_active():
 	for p in players:
 		if p != player_node:
 			p.set_inactive()
-			player_node.get_node("Remote"+str(connected_counter)).remote_path = get_path_to(p)
-			print("Connected remote path from " +str(player)+" to " + str(get_path_to(p)))
+			p.set_target(player_node)
 			connected_counter +=1 
-	
+			
+	player_node.set_target(null)
 	player_node.set_physics_process(true)
 			
 

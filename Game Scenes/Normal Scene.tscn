@@ -21,10 +21,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Norma" type="KinematicBody2D" parent="." groups=[
+[node name="Player Norma" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 1078.58, 505.149 )
+mode = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Player Norma"]
@@ -33,12 +34,6 @@ texture = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Norma"]
 current = true
-
-[node name="Remote0" type="RemoteTransform2D" parent="Player Norma"]
-
-[node name="Remote1" type="RemoteTransform2D" parent="Player Norma"]
-
-[node name="Remote2" type="RemoteTransform2D" parent="Player Norma"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Norma"]
 shape = SubResource( 1 )
