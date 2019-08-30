@@ -1,31 +1,34 @@
-extends Sprite
+extends KinematicBody2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_active()
-
-func set_active():
-	var players = get_tree().get_nodes_in_group("player")
-	for p in players:
-		if p != self:
-			p.set_inactive()
-			_connect_remote_to(p)
-	
-	set_physics_process(true)
-			
-
-func _connect_remote_to(p):
-	$RemoteOne.remote_path = get_path_to(p)
-	$RemoteTwo.remote_path = get_path_to(p)
-	$RemoteThree.remote_path = get_path_to(p)
+	pass
 
 func set_inactive():
 	set_physics_process(false)
-	$RemoteOne.remote_path = null
-	$RemoteTwo.remote_path = null
-	$RemoteThree.remote_path = null
+	$Remote0.remote_path = ""
+	$Remote1.remote_path = ""
+	$Remote2.remote_path = ""
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var velocity = Vector2(0,0)
+var max_hor_speed = 1000
+var accel_hor = 3000
+var deaccel_hor = 1500
 func _physics_process(delta):
-	pass
+	
+	if abs(velocity.x) > 0:
+		var change = sign(velocity.x) * delta * deaccel_hor
+		if abs(change) > abs(velocity.x):
+			change = velocity.x
+		velocity.x = velocity.x - change
+	
+	velocity = move_and_slide(velocity)
+
+func handle_move_right(delta):
+	print("Go right")
+	velocity.x = min(max_hor_speed, velocity.x + (delta * accel_hor))
+
+func handle_move_left(delta):
+	print("Go left")
+	velocity.x = max(-max_hor_speed, velocity.x - (delta * accel_hor))

@@ -1,46 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
 [ext_resource path="res://Game Scenes/Normal Scene.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "test_move_camera"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Player Norma:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 939.15, 504.434 ), Vector2( 1511.73, 507.371 ), Vector2( 299.031, 727.595 ), Vector2( 1038.99, 475.071 ) ]
-}
-
-[sub_resource type="GDScript" id=2]
-script/source = "extends AnimationPlayer
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	play(\"test_move_camera\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Normal Scene" type="Node2D" groups=[
 "world",
 ]]
 script = ExtResource( 3 )
+start = true
 player = NodePath("Player Norma")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -51,22 +21,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Norma" type="Sprite" parent="." groups=[
+[node name="Player Norma" type="KinematicBody2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 1078.58, 505.149 )
-texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Player Norma"]
+modulate = Color( 0.701961, 0.00392157, 0.576471, 1 )
+texture = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Norma"]
 current = true
 
-[node name="RemoteOne" type="RemoteTransform2D" parent="Player Norma"]
+[node name="Remote0" type="RemoteTransform2D" parent="Player Norma"]
 
-[node name="RemoteTwo" type="RemoteTransform2D" parent="Player Norma"]
+[node name="Remote1" type="RemoteTransform2D" parent="Player Norma"]
 
-[node name="RemoteThree" type="RemoteTransform2D" parent="Player Norma"]
+[node name="Remote2" type="RemoteTransform2D" parent="Player Norma"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/test_move_camera = SubResource( 1 )
-script = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Norma"]
+shape = SubResource( 1 )
