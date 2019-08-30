@@ -25,14 +25,9 @@ func set_active():
 	
 	set_physics_process(true)
 	
-	if get_node("AnimationPlayer"):
-		$AnimationPlayer.play("test_anim")
-	
 	player_set_active()
 
 func set_inactive():
-	if get_node("AnimationPlayer"):
-		$AnimationPlayer.stop()
 	set_physics_process(false)
 	
 	
