@@ -58,6 +58,7 @@ var target_world
 func switch_world_to(_target_world):
 	target_world = _target_world
 	var duration = 0.5
+	pause_worlds()
 	$Center/CenterTween.interpolate_property($Center,"rotation_degrees", 
 	$Center.rotation_degrees, 
 	world_rotations[_target_world.INDEX],0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
@@ -65,3 +66,8 @@ func switch_world_to(_target_world):
 
 func _on_Center_tween_completed(object, key):
 	target_world.set_active()
+
+func pause_worlds():
+	var worlds = get_tree().get_nodes_in_group("world")
+	for w in worlds:
+		w.set_inactive()

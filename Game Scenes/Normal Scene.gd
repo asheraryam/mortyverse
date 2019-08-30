@@ -28,6 +28,10 @@ func set_active():
 	player_set_active()
 
 func set_inactive():
+	var players = get_tree().get_nodes_in_group("player")
+	for p in players:
+		if p != player_node:
+			p.set_inactive()
 	set_physics_process(false)
 	
 	
