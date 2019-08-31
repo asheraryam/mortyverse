@@ -3,8 +3,8 @@ extends Spatial
 var world_rotations = [ 
 	Vector3(0,0,0),
 	Vector3(90,0,0),
-#	Vector3(180,0,0),
-#	Vector3(270,0,0)
+	Vector3(180,0,0),
+	Vector3(270,0,0)
 	]
 
 # Called when the node enters the scene tree for the first time.
@@ -49,7 +49,7 @@ func go_to_next_world():
 
 func go_to_prev_world():
 	
-	var target_index = (game.current_world.INDEX - 1) % world_rotations.size()
+	var target_index = (game.current_world.INDEX - 1) #% world_rotations.size()
 	if game.current_world.INDEX == 0:
 		target_index = world_rotations.size()-1
 	
@@ -62,9 +62,24 @@ func switch_world_to(_target_world):
 	target_world = _target_world
 	var duration = 0.5
 	pause_worlds()
+	var current_degrees = $Center.rotation_degrees
+	var target_degrees = world_rotations[_target_world.INDEX]
+#	var target_degrees = current_degrees 
+#	if game.current_world.INDEX < _target_world.INDEX or (
+#	game.current_world.INDEX == world_rotations.size()-1 and _target_world.INDEX== 0):
+#		target_degrees.x += 90
+#	else:
+#		target_degrees.x -= 90
+
+#	if abs(target_degrees.x - current_degrees.x) > 180:
+#		target_degrees.x -= 360 #* sign(target_degrees.x)
+	
+	
+#	if game.current_world.INDEX == 0 and _target_world.INDEX == world_rotations.size() -1:
+#		degrees = Vector3(360,0,0)
 	$Center/CenterTween.interpolate_property($Center,"rotation_degrees", 
-	$Center.rotation_degrees, 
-	world_rotations[_target_world.INDEX],0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
+	current_degrees, 
+	target_degrees,0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
 	$Center/CenterTween.start()
 
 func _on_Center_tween_completed(object, key):
