@@ -1,20 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/morty.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/crate.png" type="Texture" id=4]
 [ext_resource path="res://Parallel/Box.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/tileset test/tileset_tileset test.tres" type="TileSet" id=6]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Normal Scene" type="Node2D" groups=[
 "world",
@@ -37,7 +38,7 @@ position = Vector2( 190.748, 116.612 )
 collision_layer = 2
 collision_mask = 5
 mode = 2
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
@@ -45,7 +46,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Norma"]
 position = Vector2( 0, 3.86346 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Player Norma"]
 texture = ExtResource( 1 )
@@ -69,4 +70,11 @@ script = ExtResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
+
+[node name="TestTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 24, 24 )
+cell_quadrant_size = 1
+format = 1
+tile_data = PoolIntArray( 720898, 47, 262145 )
