@@ -92,9 +92,9 @@ cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 262141, 0, 393216, 262142, 0, 1, 262143, 0, 393218, 327677, 0, 458752, 327678, 0, 65537, 327679, 0, 458754, 393213, 0, 524288, 393214, 0, 524289, 393215, 0, 524290 )
 
-[node name="YSort" type="YSort" parent="."]
+[node name="Boxes Parent" type="YSort" parent="."]
 
-[node name="Box" parent="YSort" instance=ExtResource( 4 )]
+[node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
 position = Vector2( 280.527, 57.049 )
 
 [node name="Grass" type="TileMap" parent="."]

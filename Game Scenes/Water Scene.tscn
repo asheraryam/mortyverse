@@ -60,7 +60,9 @@ collide_with_areas = true
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="Box" parent="." instance=ExtResource( 4 )]
+[node name="Boxes Parent" type="YSort" parent="."]
+
+[node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
 position = Vector2( 210.743, 80.4911 )
 
 [node name="Terrain" parent="." instance=ExtResource( 5 )]

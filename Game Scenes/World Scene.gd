@@ -23,8 +23,12 @@ func set_active():
 			w.set_inactive()
 	
 	set_physics_process(true)
-	
 	player_set_active()
+	
+	var boxes = get_tree().get_nodes_in_group("box")
+	for b in boxes:
+		b.call_deferred("set_active")
+	
 
 func set_inactive():
 	var players = get_tree().get_nodes_in_group("player")

@@ -43,19 +43,12 @@ func _ready():
 		add_child(ray_right)
 		ray_right.cast_to = Vector2(12,0)
 
-
-
 var grabbing_object :PhysicsBody2D = null
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if grabbing_object:
-			var before_trans = grabbing_object.global_position
-			remove_child(grabbing_object)
-			get_parent().add_child(grabbing_object)
-			grabbing_object.global_position = before_trans
-			grabbing_object.mode =RigidBody2D.MODE_CHARACTER
-			remove_collision_exception_with(grabbing_object)
-			call_deferred("clear_grabbed")
+#			grabbing_object.set_released()
+			box_released()
 		else:
 			print("Try interact")
 			var col
@@ -66,20 +59,40 @@ func _physics_process(delta):
 			
 			if col:
 				print("Found body")
-				grabbing_object = col
-				var before_trans = col.global_position
-				col.get_parent().remove_child(col)
-				add_child(col)
-				add_collision_exception_with(col)
-				col.mode =RigidBody2D.MODE_KINEMATIC
-				col.global_position = before_trans
-				col.global_position.y -= 12
-
+				set_grabbed(col)
+#				col.set_grabbed()
+				
+				
+				
 func clear_grabbed():
 	grabbing_object = null
 	
-			
+func parallel_grab(box):
+	set_grabbed(box)
 
+func parallel_release():
+	box_released()
+	
+func set_grabbed(col):
+	grabbing_object = col
+	var before_trans = col.global_position
+	col.get_parent().remove_child(col)
+	add_child(col)
+	add_collision_exception_with(col)
+	col.mode =RigidBody2D.MODE_KINEMATIC
+	col.global_position = before_trans
+	col.global_position.y -= 12
+
+func box_released():
+	if grabbing_object:
+		var before_trans = grabbing_object.global_position
+		remove_child(grabbing_object)
+		get_parent().add_child(grabbing_object)
+		grabbing_object.global_position = before_trans
+		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
+		remove_collision_exception_with(grabbing_object)
+		call_deferred("clear_grabbed")
+	
 func is_on_floor():
 	#	get_node("RayDown").force_update_transform()
 #	get_node("RayDown").force_raycast_update()

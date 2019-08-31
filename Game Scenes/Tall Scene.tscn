@@ -54,4 +54,6 @@ current = true
 
 [node name="Terrain" parent="." instance=ExtResource( 6 )]
 
-[node name="Box" parent="." instance=ExtResource( 4 )]
+[node name="Box Parent" type="YSort" parent="."]
+
+[node name="Box" parent="Box Parent" instance=ExtResource( 4 )]
