@@ -14,6 +14,7 @@ func _ready():
 		ray_down.name = "RayDown"
 		ray_down.enabled = true
 		ray_down.exclude_parent = true
+		ray_down.collision_mask = pow(2,0) + pow(2,2) # Mask layers 1 and 3
 		add_child(ray_down)
 		ray_down.cast_to = Vector2(0,24)
 	if not jump_timer:
