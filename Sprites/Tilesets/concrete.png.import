@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bush base clear.png-1432552a5c066f7cc70700f23a6d3963.stex"
+path="res://.import/concrete.png-94ce94818a70cb56d03ba077fc540204.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/environment/bush/bush base clear.png"
-dest_files=[ "res://.import/bush base clear.png-1432552a5c066f7cc70700f23a6d3963.stex" ]
+source_file="res://Sprites/Tilesets/concrete.png"
+dest_files=[ "res://.import/concrete.png-94ce94818a70cb56d03ba077fc540204.stex" ]
 
 [params]
 
