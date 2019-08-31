@@ -14,10 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if Input.is_action_just_pressed("next_world"):
-		go_to_next_world()
-	if Input.is_action_just_pressed("prev_world"):
-		go_to_prev_world()
+	if game.current_world:
+		if Input.is_action_just_pressed("next_world"):
+			go_to_next_world()
+		if Input.is_action_just_pressed("prev_world"):
+			go_to_prev_world()
 		
 func get_world_by_id(i):
 	var worlds = get_tree().get_nodes_in_group("world")

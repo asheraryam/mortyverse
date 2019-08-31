@@ -1,25 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/morty.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/crate.png" type="Texture" id=4]
-[ext_resource path="res://Parallel/Box.gd" type="Script" id=5]
+[ext_resource path="res://Parallel/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Tilesets/tileset template.tres" type="TileSet" id=6]
 [ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=7]
-[ext_resource path="res://Sprites/Tilesets/terrain normal.tres" type="TileSet" id=8]
 [ext_resource path="res://Levels/Terrain1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Tilesets/bushes.tres" type="TileSet" id=10]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 28.0
-
-[sub_resource type="PhysicsMaterial" id=3]
-friction = 0.0
-
-[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Normal Scene" type="Node2D" groups=[
 "world",
@@ -28,9 +22,13 @@ friction = 0.0
 script = ExtResource( 3 )
 player = NodePath("Player Norma")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 360.0
 margin_bottom = 240.0
+color = Color( 0.631373, 0.937255, 0.980392, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,7 +45,6 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
-player_movement = true
 
 [node name="Sprite" type="Sprite" parent="Player Norma"]
 texture = ExtResource( 1 )
@@ -60,24 +57,6 @@ current = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Player Norma"]
 cast_to = Vector2( 24, 0 )
-
-[node name="Box" type="RigidBody2D" parent="."]
-position = Vector2( 116.609, 58.4436 )
-collision_layer = 4
-collision_mask = 7
-mode = 3
-physics_material_override = SubResource( 3 )
-gravity_scale = 0.0
-contacts_reported = 5
-contact_monitor = true
-can_sleep = false
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Box"]
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
-shape = SubResource( 4 )
 
 [node name="TestTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -92,5 +71,12 @@ cell_quadrant_size = 1
 format = 1
 
 [node name="Terrain" parent="." instance=ExtResource( 9 )]
-tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 2, 131082, 0, 3, 196608, 0, 524288, 196609, 0, 524290, 196611, 0, 589824, 196612, 0, 196609, 196613, 0, 589826, 196618, 0, 458755, 262154, 0, 65539, 327688, 0, 393220, 327689, 0, 196609, 327690, 0, 589831, 393222, 0, 3, 393224, 0, 65539, 458752, 0, 393216, 458753, 0, 393218, 458755, 0, 3, 458757, 0, 0, 458758, 0, 131080, 458759, 0, 393217, 458760, 0, 524296, 458761, 0, 393217, 458762, 0, 1, 458763, 0, 1, 458764, 0, 1, 458765, 0, 1, 458766, 0, 393218, 524288, 0, 458752, 524289, 0, 524293, 524290, 0, 1, 524291, 0, 524296, 524292, 0, 393217, 524293, 0, 131078, 524294, 0, 65537, 524295, 0, 458753, 524296, 0, 458753, 524297, 0, 65537, 524298, 0, 458753, 524299, 0, 458753, 524300, 0, 65537, 524301, 0, 458753, 524302, 0, 458754, 589824, 0, 131072, 589825, 0, 131073, 589826, 0, 524289, 589827, 0, 524289, 589828, 0, 131073, 589829, 0, 131073, 589830, 0, 131073, 589831, 0, 524289, 589832, 0, 131073, 589833, 0, 131073, 589834, 0, 131073, 589835, 0, 524289, 589836, 0, 131073, 589837, 0, 131073, 589838, 0, 524290 )
-parallel_tileset = ExtResource( 8 )
+
+[node name="Bushes" type="TileMap" parent="."]
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 262141, 0, 393216, 262142, 0, 1, 262143, 0, 393218, 327677, 0, 458752, 327678, 0, 65537, 327679, 0, 458754, 393213, 0, 524288, 393214, 0, 524289, 393215, 0, 524290 )
+
+[node name="Box" parent="." instance=ExtResource( 4 )]
+position = Vector2( 280.527, 57.049 )

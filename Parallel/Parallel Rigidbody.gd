@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-export(bool) var player_movement = false
-
 var velocity : Vector2 = Vector2(0,0)
 var parallel_target = null
 
@@ -37,7 +35,7 @@ func is_on_floor():
 
 func set_target(_target):
 	if parallel_target and not _target:
-		velocity = parallel_target.velocity
+		linear_velocity = parallel_target.linear_velocity
 	parallel_target = _target
 	
 
@@ -56,9 +54,6 @@ export(int) var AIR_ACCEL = 100
 export(int) var AIR_DEACCEL = 120
 func _integrate_forces(s):
 	if is_physics_processing():
-		if not player_movement:
-			s.linear_velocity = velocity
-		else:
 			var lv = s.get_linear_velocity()
 			var step = s.get_step()
 			
@@ -224,7 +219,9 @@ func _integrate_forces(s):
 			lv += s.get_total_gravity() * step
 			s.set_linear_velocity(lv)
 	else:
-		s.linear_velocity = Vector2()
+		pass
+#		s.linear_velocity = velocity
+#		s.linear_velocity = Vector2()
 	if parallel_target:
 		var xform = s.get_transform()
 		xform.origin = parallel_target.global_position
