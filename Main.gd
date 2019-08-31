@@ -3,8 +3,8 @@ extends Spatial
 var world_rotations = [ 
 	Vector3(0,0,0),
 	Vector3(90,0,0),
-	Vector3(180,0,0),
-	Vector3(270,0,0)
+#	Vector3(180,0,0),
+#	Vector3(270,0,0)
 	]
 
 # Called when the node enters the scene tree for the first time.
@@ -34,8 +34,6 @@ func get_world_by_id(i):
 	print("Not found world at " + str(i))
 	
 func go_to_next_world():
-	if $Center/CenterTween.is_active():
-		return
 #	$Center/Tween.stop_all()
 	var target_index = (game.current_world.INDEX + 1) % world_rotations.size()
 	
@@ -56,6 +54,8 @@ func go_to_prev_world():
 
 var target_world
 func switch_world_to(_target_world):
+	if $Center/CenterTween.is_active():
+		return
 	target_world = _target_world
 	var duration = 0.5
 	pause_worlds()

@@ -17,6 +17,7 @@ func _ready():
 
 
 func set_active():
+	print("Set world active " + str(INDEX))
 	game.current_world = self
 	var worlds = get_tree().get_nodes_in_group("world")
 	for w in worlds:
@@ -36,6 +37,8 @@ func set_inactive():
 	
 	
 func player_set_active():
+	player_node.set_target(null)
+	player_node.set_physics_process(true)
 	var players = get_tree().get_nodes_in_group("player")
 	var connected_counter = 0
 	for p in players:
@@ -44,8 +47,7 @@ func player_set_active():
 			p.set_target(player_node)
 			connected_counter +=1 
 			
-	player_node.set_target(null)
-	player_node.set_physics_process(true)
+	
 			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
