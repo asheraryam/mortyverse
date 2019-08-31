@@ -14,6 +14,7 @@ func get_bros():
 	for b in others:
 		if b != self and b.box_index == box_index:
 			bros.append(b)
+			print("Owner: " + b.owner.name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -43,5 +44,6 @@ func set_grabbed():
 
 func set_released():
 	for b in bros:
+		print("boxes owner " + str(b.owner.name))
 		b.owner.player_node.parallel_release()
 	

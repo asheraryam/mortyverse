@@ -17,7 +17,7 @@ friction = 0.0
 ]]
 script = ExtResource( 3 )
 INDEX = 3
-player = NodePath("../Ghost Scene/Player Norma")
+player = NodePath("Player Norma")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
