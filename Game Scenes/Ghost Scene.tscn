@@ -56,9 +56,9 @@ texture = ExtResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="Player Norma"]
 current = true
 
-[node name="Box Parent" type="YSort" parent="."]
+[node name="Boxes Parent" type="YSort" parent="."]
 
-[node name="Box" parent="Box Parent" instance=ExtResource( 4 )]
+[node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
 
 [node name="Terrain" parent="." instance=ExtResource( 5 )]
 parallel_tileset = ExtResource( 7 )

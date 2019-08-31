@@ -1,18 +1,19 @@
 extends RigidBody2D
 
-export(int) var box_index = 0
+export(int) var BOX_INDEX = 0
 
 var parallel_target : RigidBody2D
 
-# Called when the node enters the scene tree for the first time.
+var original_owner
 func _ready():
+	original_owner = owner
 	get_bros()
 
 var bros = []
 func get_bros():
 	var others = get_tree().get_nodes_in_group("box")
 	for b in others:
-		if b != self and b.box_index == box_index:
+		if b != self and b.BOX_INDEX == BOX_INDEX:
 			bros.append(b)
 			print("Owner: " + b.owner.name)
 
@@ -21,7 +22,10 @@ func get_bros():
 #	pass
 
 func set_active():
-	if game.current_world == owner:
+	if not original_owner:
+		print("Box with no owner!")
+	if game.current_world == original_owner:
+		print("Setting box active in world " + original_owner.name)
 		set_target(null)
 		for b in bros:
 			b.set_target(self)
@@ -40,10 +44,10 @@ func _integrate_forces(s):
 
 func set_grabbed():
 	for b in bros:
-		b.owner.player_node.parallel_grab(b)
+		b.original_owner.player_node.parallel_grab(b)
 
 func set_released():
 	for b in bros:
-		print("boxes owner " + str(b.owner.name))
-		b.owner.player_node.parallel_release()
+		print("boxes owner " + str(b.original_owner.name))
+		b.original_owner.player_node.parallel_release()
 	

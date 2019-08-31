@@ -8,7 +8,10 @@ export(bool) var allow_many_jumps = false
 var ray_down : RayCast2D
 var ray_left : RayCast2D
 var ray_right : RayCast2D
+
+var original_owner 
 func _ready():
+	original_owner = owner
 	add_collision_exception_with(self)
 	ray_down = get_node("RayDown")
 	if not ray_down:
@@ -46,10 +49,9 @@ func _ready():
 var grabbing_object :PhysicsBody2D = null
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
-		print("Grabber name " + owner.name)
 		if grabbing_object:
 			box_released(false)
-			grabbing_object.set_released()
+#			grabbing_object.call_deferred("set_released")
 		else:
 			print("Try interact")
 			var col
@@ -61,7 +63,7 @@ func _physics_process(delta):
 			if col:
 				print("Found body")
 				set_box_grabbed(col, false)
-				col.set_grabbed()
+#				col.call_deferred("set_grabbed")
 				
 				
 				
@@ -109,8 +111,16 @@ func is_on_floor():
 
 func set_target(_target):
 	if parallel_target and not _target:
+		if parallel_target.grabbing_object:
+			grab_parallel_box(parallel_target.grabbing_object)
+			parallel_target.box_released()
 		linear_velocity = parallel_target.linear_velocity
 	parallel_target = _target
+
+func grab_parallel_box(box):
+	for b in box.bros:
+		if b.original_owner == original_owner:
+			set_box_grabbed(b)
 	
 
 var siding_left = false

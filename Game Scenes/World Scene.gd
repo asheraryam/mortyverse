@@ -27,7 +27,7 @@ func set_active():
 	
 	var boxes = get_tree().get_nodes_in_group("box")
 	for b in boxes:
-		b.call_deferred("set_active")
+		b.set_active()
 	
 
 func set_inactive():
