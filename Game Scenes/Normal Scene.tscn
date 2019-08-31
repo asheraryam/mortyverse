@@ -5,7 +5,7 @@
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/crate.png" type="Texture" id=4]
 [ext_resource path="res://Parallel/Box.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/tileset test/tileset_tileset test.tres" type="TileSet" id=6]
+[ext_resource path="res://Sprites/tileset test/tileset template.tres" type="TileSet" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -77,4 +77,3 @@ tile_set = ExtResource( 6 )
 cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( 720898, 47, 262145 )
