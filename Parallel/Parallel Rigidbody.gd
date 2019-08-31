@@ -13,8 +13,9 @@ var original_owner
 func _ready():
 	original_owner = owner
 	add_collision_exception_with(self)
-	ray_down = get_node("RayDown")
-	if not ray_down:
+	if has_node("RayDown"):
+		ray_down = get_node("RayDown")
+	else:
 		print("Added raycast")
 		ray_down = RayCast2D.new()
 		ray_down.name = "RayDown"
@@ -23,8 +24,9 @@ func _ready():
 		ray_down.collision_mask = pow(2,0) + pow(2,2) # Mask layers 1 and 3
 		add_child(ray_down)
 		ray_down.cast_to = Vector2(0,24)
-	ray_left = get_node("RayLeft")
-	if not ray_left:
+	if has_node("RayLeft"):
+		ray_left = get_node("RayLeft")
+	else:
 		print("Added raycast")
 		ray_left = RayCast2D.new()
 		ray_left.name = "RayLeft"
@@ -34,8 +36,10 @@ func _ready():
 		add_child(ray_left)
 		ray_left.position.y += 6
 		ray_left.cast_to = Vector2(-12,0)
-	ray_right = get_node("RayRight")
-	if not ray_right:
+	
+	if has_node("RayRight"):
+		ray_right = get_node("RayRight")
+	else:
 		print("Added raycast")
 		ray_right = RayCast2D.new()
 		ray_right.name = "RayRight"
@@ -47,8 +51,13 @@ func _ready():
 		ray_right.cast_to = Vector2(12,0)
 
 var grabbing_object :PhysicsBody2D = null
+
 func _physics_process(delta):
+	_on_physics_process(delta)
+	
+func _on_physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
+		print("Grabbing with " + name)
 		if grabbing_object:
 			box_released(false)
 #			grabbing_object.call_deferred("set_released")
@@ -65,7 +74,8 @@ func _physics_process(delta):
 				set_box_grabbed(col, false)
 #				col.call_deferred("set_grabbed")
 				
-				
+func set_inactive():
+	set_physics_process(false)
 				
 func clear_grabbed():
 	grabbing_object = null
@@ -312,7 +322,13 @@ func _integrate_forces(s):
 			lv.x += floor_h_velocity
 		
 		# Finally, apply gravity and set back the linear velocity
-		lv += s.get_total_gravity() * step
+		if not has_node("Phase Timer") or get_node("Phase Timer").is_stopped():
+			lv += s.get_total_gravity() * step
+		if _reset_walk_requested:
+			_reset_walk_requested = false
+			lv.x = 0
+		if has_node("Phase Timer") and not get_node("Phase Timer").is_stopped():
+			lv = phase_vector
 		s.set_linear_velocity(lv)
 	else:
 		pass
@@ -323,4 +339,7 @@ func _integrate_forces(s):
 		xform.origin = parallel_target.global_position
 		s.set_transform(xform)
 
-
+var phase_vector : Vector2
+var _reset_walk_requested = false
+func force_reset_walk():
+	_reset_walk_requested = true

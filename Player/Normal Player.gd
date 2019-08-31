@@ -5,8 +5,7 @@ extends "res://Parallel/Parallel Rigidbody.gd"
 func _ready():
 	pass
 
-func set_inactive():
-	set_physics_process(false)
+
 
 
 
