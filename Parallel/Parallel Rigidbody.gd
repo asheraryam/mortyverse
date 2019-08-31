@@ -35,7 +35,7 @@ func _ready():
 		ray_left.collision_mask = pow(2,2) # Mask layer 3 for boxes
 		add_child(ray_left)
 		ray_left.position.y += 6
-		ray_left.cast_to = Vector2(-12,0)
+		ray_left.cast_to = Vector2(-14,0)
 	
 	if has_node("RayRight"):
 		ray_right = get_node("RayRight")
@@ -48,7 +48,7 @@ func _ready():
 		ray_right.collision_mask = pow(2,2) # Mask layer 3 for boxes
 		ray_right.position.y += 6
 		add_child(ray_right)
-		ray_right.cast_to = Vector2(12,0)
+		ray_right.cast_to = Vector2(14,0)
 
 var grabbing_object :PhysicsBody2D = null
 
