@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://Sprites/tileset test/tileset_tileset test.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tilesets/tileset_tileset test.png" type="Texture" id=1]
 
 [resource]
 0/name = "tileset_tileset test.png 0"
