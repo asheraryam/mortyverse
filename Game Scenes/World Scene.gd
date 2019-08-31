@@ -47,8 +47,6 @@ func player_set_active():
 			p.set_target(player_node)
 			connected_counter +=1 
 			
-	
-			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

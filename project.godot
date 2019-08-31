@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 game="*res://Autoload/game.gd"
 
+[debug]
+
+shapes/collision/shape_color=Color( 0.184314, 0.643137, 0.0862745, 0.501961 )
+
 [display]
 
 window/size/width=1920
