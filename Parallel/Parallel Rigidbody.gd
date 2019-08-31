@@ -104,9 +104,9 @@ var MAX_FLOOR_AIRBORNE_TIME = 0.5
 var jumping = false
 var stopping_jump
 export(int) var STOP_JUMP_FORCE = 200
-export(int) var WALK_MAX_VELOCITY = 200
-export(int) var WALK_ACCEL = 500
-export(int) var WALK_DEACCEL = 400
+export(int) var WALK_MAX_VELOCITY = 150
+export(int) var WALK_ACCEL = 600
+export(int) var WALK_DEACCEL = 500
 export(int) var JUMP_VELOCITY = 120
 export(int) var AIR_ACCEL = 400
 export(int) var AIR_DEACCEL = 120
@@ -130,6 +130,7 @@ func _integrate_forces(s):
 		var move_left = Input.is_action_pressed("move_left")
 		var move_right = Input.is_action_pressed("move_right")
 		var jump = Input.is_action_pressed("jump")
+		var new_jump = Input.is_action_just_pressed("jump")
 #			var shoot = Input.is_action_pressed("shoot")
 #			var spawn = Input.is_action_pressed("spawn")
 		
