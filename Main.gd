@@ -79,6 +79,9 @@ func switch_world_to(_target_world):
 	
 #	if game.current_world.INDEX == 0 and _target_world.INDEX == world_rotations.size() -1:
 #		degrees = Vector3(360,0,0)
+	var players = get_tree().get_nodes_in_group("player")
+	for p in players:
+		p.update_facing()
 	$Center/CenterTween.interpolate_property($Center,"rotation_degrees", 
 	current_degrees, 
 	target_degrees,0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)

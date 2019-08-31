@@ -119,6 +119,14 @@ func is_on_floor():
 	
 	return false
 
+func update_facing():
+	if parallel_target:
+		siding_left = parallel_target.siding_left
+		if siding_left:
+			$Sprite.scale.x = -1
+		else:
+			$Sprite.scale.x = 1
+
 func set_target(_target):
 	if parallel_target and not _target:
 		if parallel_target.grabbing_object:

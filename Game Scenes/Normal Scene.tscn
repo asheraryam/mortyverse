@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/morty.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Tilesets/bushes.tres" type="TileSet" id=10]
 [ext_resource path="res://Sprites/environment/ref.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/environment/city background.png" type="Texture" id=12]
+[ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=13]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -70,6 +71,11 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Normal"]
 current = true
+
+[node name="CollisionShape2D2" parent="Player Normal" instance=ExtResource( 13 )]
+
+[node name="CollisionShape2D3" parent="Player Normal" instance=ExtResource( 13 )]
+position = Vector2( 8, 22 )
 
 [node name="TestTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
