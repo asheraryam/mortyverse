@@ -107,10 +107,19 @@ export(int) var STOP_JUMP_FORCE = 200
 export(int) var WALK_MAX_VELOCITY = 200
 export(int) var WALK_ACCEL = 500
 export(int) var WALK_DEACCEL = 400
-export(int) var JUMP_VELOCITY = 100
+export(int) var JUMP_VELOCITY = 120
 export(int) var AIR_ACCEL = 400
 export(int) var AIR_DEACCEL = 120
 func _integrate_forces(s):
+	# Find the floor (a contact with upwards facing collision normal)
+	var found_floor = false
+	var floor_index = -1
+	
+	for x in range(s.get_contact_count()):
+		var ci = s.get_contact_local_normal(x)
+		if ci.dot(Vector2(0, -1)) > 0.6:
+			found_floor = true
+			floor_index = x
 	if is_physics_processing():
 		var lv = s.get_linear_velocity()
 		var step = s.get_step()
@@ -135,15 +144,7 @@ func _integrate_forces(s):
 		lv.x -= floor_h_velocity
 		floor_h_velocity = 0.0
 		
-		# Find the floor (a contact with upwards facing collision normal)
-		var found_floor = false
-		var floor_index = -1
-		
-		for x in range(s.get_contact_count()):
-			var ci = s.get_contact_local_normal(x)
-			if ci.dot(Vector2(0, -1)) > 0.6:
-				found_floor = true
-				floor_index = x
+
 		
 		# A good idea when implementing characters of all kinds,
 		# compensates for physics imprecision, as well as human reaction delay.
@@ -209,7 +210,7 @@ func _integrate_forces(s):
 				lv.x = sign(lv.x) * xv
 			
 			# Check jump
-			if not jumping and jump:
+			if not jumping and jump and found_floor:
 				lv.y = -JUMP_VELOCITY
 				jumping = true
 				stopping_jump = false
