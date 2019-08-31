@@ -55,9 +55,6 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="Player Norma"]
 current = true
 
-[node name="RayCast2D" type="RayCast2D" parent="Player Norma"]
-cast_to = Vector2( 24, 0 )
-
 [node name="TestTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 24, 24 )
@@ -78,5 +75,7 @@ cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 262141, 0, 393216, 262142, 0, 1, 262143, 0, 393218, 327677, 0, 458752, 327678, 0, 65537, 327679, 0, 458754, 393213, 0, 524288, 393214, 0, 524289, 393215, 0, 524290 )
 
-[node name="Box" parent="." instance=ExtResource( 4 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Box" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 280.527, 57.049 )
