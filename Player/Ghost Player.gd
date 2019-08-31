@@ -34,8 +34,8 @@ func _on_physics_process(delta):
 		self,"phase_vector",impulse,Vector2(0,0), 
 		phase_timer.wait_time,
 		Tween.TRANS_SINE,Tween.EASE_OUT)
+		$AnimationPlayer.play("phase")
 		phase_tween.start()
-			
 #		apply_central_impulse(impulse)
 		phase_timer.start()
 
