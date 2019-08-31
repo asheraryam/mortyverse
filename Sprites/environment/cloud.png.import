@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sun.png-cc32e3d1152f0961b8dfe84fcd51e6df.stex"
+path="res://.import/cloud.png-d88ba378b9d413d8055a7707ce25603f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/environment/sun.png"
-dest_files=[ "res://.import/sun.png-cc32e3d1152f0961b8dfe84fcd51e6df.stex" ]
+source_file="res://Sprites/environment/cloud.png"
+dest_files=[ "res://.import/cloud.png-d88ba378b9d413d8055a7707ce25603f.stex" ]
 
 [params]
 
