@@ -19,16 +19,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("prev_world"):
 		go_to_prev_world()
 		
-	if Input.is_action_pressed("move_left"):
-		game.current_world.player_node.handle_move_left(delta)
-	if Input.is_action_pressed("move_right"):
-		game.current_world.player_node.handle_move_right(delta)
-	
-	if Input.is_action_pressed("jump"):
-		game.current_world.player_node.handle_jump(delta)
-	if Input.is_action_just_released("jump"):
-		game.current_world.player_node.handle_jump_release()
-
 func get_world_by_id(i):
 	var worlds = get_tree().get_nodes_in_group("world")
 	for w in worlds:
