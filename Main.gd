@@ -10,6 +10,7 @@ var world_rotations = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game.main_node = self
+	switch_world_to(get_tree().get_nodes_in_group("start_world")[0])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -61,9 +62,19 @@ func switch_world_to(_target_world):
 		return
 	target_world = _target_world
 	var duration = 0.5
-	pause_worlds()
+	if game.current_world:
+		pause_worlds()
+	else:
+		duration = 0.001
 	var current_degrees = $Center.rotation_degrees
+#	var target_degrees = current_degrees
 	var target_degrees = world_rotations[_target_world.INDEX]
+#	target_degrees.x = deg2rad(world_rotations[_target_world.INDEX].x)
+#	if game.current_world.INDEX < _target_world.INDEX:
+#		target_degrees.x += deg2rad(90)
+#	else:
+#		target_degrees.x -= deg2rad(90)
+		
 #	var target_degrees = current_degrees 
 #	if game.current_world.INDEX < _target_world.INDEX or (
 #	game.current_world.INDEX == world_rotations.size()-1 and _target_world.INDEX== 0):

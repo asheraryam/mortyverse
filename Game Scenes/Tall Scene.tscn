@@ -20,12 +20,11 @@ friction = 0.0
 "world",
 ]]
 script = ExtResource( 3 )
-start = true
 INDEX = 2
 player = NodePath("../Tall Scene/Player Norma")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 320.0
+margin_right = 360.0
 margin_bottom = 240.0
 color = Color( 0.764706, 0.929412, 0.545098, 1 )
 __meta__ = {

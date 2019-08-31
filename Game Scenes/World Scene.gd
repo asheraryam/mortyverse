@@ -1,6 +1,5 @@
 extends Node2D
 
-export(bool) var start = false
 
 export(int) var INDEX = 0 
 
@@ -12,8 +11,7 @@ var player_node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_node = get_node(player)
-	if start:
-		set_active()
+
 
 
 func set_active():

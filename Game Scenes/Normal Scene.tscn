@@ -18,13 +18,13 @@ friction = 0.0
 
 [node name="Normal Scene" type="Node2D" groups=[
 "world",
+"start_world",
 ]]
 script = ExtResource( 3 )
-start = true
 player = NodePath("Player Norma")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 320.0
+margin_right = 360.0
 margin_bottom = 240.0
 __meta__ = {
 "_edit_use_anchors_": false
