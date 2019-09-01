@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player Tall.gd" type="Script" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://Sprites/morty/tall run 1/run tall 3.png" type="Texture" id=34]
 [ext_resource path="res://Sprites/morty/tall run 1/run tall 4.png" type="Texture" id=35]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=37]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -160,3 +161,4 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="SharedLevel" parent="." instance=ExtResource( 36 )]
+terrain_tiles = ExtResource( 37 )

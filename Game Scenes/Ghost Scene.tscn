@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Player/Ghost Player.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=7]
 [ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=8]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=10]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -110,4 +111,5 @@ position = Vector2( 0, 1.36075 )
 shape = SubResource( 4 )
 
 [node name="SharedLevel" parent="." instance=ExtResource( 9 )]
+terrain_tiles = ExtResource( 10 )
 [connection signal="timeout" from="Player Ghost/Phase Timer" to="Player Ghost" method="phase_timout"]

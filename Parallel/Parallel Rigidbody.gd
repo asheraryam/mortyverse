@@ -185,7 +185,7 @@ func _integrate_forces(s):
 		var move_left = Input.is_action_pressed("move_left")
 		var move_right = Input.is_action_pressed("move_right")
 		var jump = Input.is_action_pressed("jump") and can_jump
-		var new_jump = Input.is_action_just_pressed("jump") and can_jump
+		var new_jump = Input.is_action_just_pressed("jump") and can_jump and not inside_airsection
 #			var shoot = Input.is_action_pressed("shoot")
 #			var spawn = Input.is_action_pressed("spawn")
 		
@@ -300,7 +300,7 @@ func _integrate_forces(s):
 					xv = 0
 				lv.x = sign(lv.x) * xv
 			
-			if allow_many_jumps:
+			if allow_many_jumps and not inside_airsection:
 				# Check jump
 				if not jumping and jump:
 					lv.y = -JUMP_VELOCITY
@@ -399,3 +399,5 @@ func play_anim(anim_name):
 func collect_artifact(thing : PhysicsBody2D):
 	thing.self_destruct()
 	# play collect sfx
+
+var inside_airsection = false

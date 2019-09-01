@@ -1,32 +1,34 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/morty/swim/swim 2.png" type="Texture" id=1]
-[ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=2]
-[ext_resource path="res://Player/Water Player.gd" type="Script" id=3]
-[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/morty/swim/swim 3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/swim/swim 1.png" type="Texture" id=9]
+[ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
+[ext_resource path="res://Player/Water Player.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/morty/swim/swim 1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/morty/swim/swim 2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/morty/swim/swim 3.png" type="Texture" id=5]
+[ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=8]
+[ext_resource path="res://Parallel/AirSection.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "jump",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -35,7 +37,7 @@ height = 26.0
 [node name="Water Scene" type="Node2D" groups=[
 "world",
 ]]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 INDEX = 1
 player = NodePath("Player Water")
 
@@ -62,7 +64,7 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 can_grab_box = false
 allow_many_jumps = true
 
@@ -83,10 +85,13 @@ collide_with_areas = true
 [node name="Camera2D" type="Camera2D" parent="Player Water"]
 current = true
 
-[node name="CollisionShape2D2" parent="Player Water" instance=ExtResource( 7 )]
+[node name="CollisionShape2D2" parent="Player Water" instance=ExtResource( 6 )]
 position = Vector2( -7, 22 )
 
-[node name="CollisionShape2D3" parent="Player Water" instance=ExtResource( 7 )]
+[node name="CollisionShape2D3" parent="Player Water" instance=ExtResource( 6 )]
 position = Vector2( 7, 22 )
 
-[node name="SharedLevel" parent="." instance=ExtResource( 4 )]
+[node name="SharedLevel" parent="." instance=ExtResource( 7 )]
+terrain_tiles = ExtResource( 8 )
+
+[node name="AirSection" parent="." instance=ExtResource( 9 )]
