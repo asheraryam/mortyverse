@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tilesets/water tiles.tres" type="TileSet" id=2]
@@ -6,11 +6,10 @@
 [ext_resource path="res://Sprites/morty/swim/swim 1.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/morty/swim/swim 2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/morty/swim/swim 3.png" type="Texture" id=6]
-[ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/bubble.png" type="Texture" id=8]
-[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=10]
-[ext_resource path="res://Parallel/AirSection.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/bubble.png" type="Texture" id=7]
+[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=9]
+[ext_resource path="res://Parallel/AirSection.gd" type="Script" id=10]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -34,29 +33,31 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-height = 26.0
+radius = 8.0
+height = 30.0
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0.00371803, 0.5077 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4989 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 1
 emission_sphere_radius = 10.0
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 10.0
+angular_velocity = 1.49184e-019
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_random = 1.0
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 5 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 400, 200 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 600, 40.48 )
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -122,12 +123,6 @@ collide_with_areas = true
 [node name="Camera2D" type="Camera2D" parent="Player Water"]
 current = true
 
-[node name="CollisionShape2D2" parent="Player Water" instance=ExtResource( 7 )]
-position = Vector2( -7, 22 )
-
-[node name="CollisionShape2D3" parent="Player Water" instance=ExtResource( 7 )]
-position = Vector2( 7, 22 )
-
 [node name="Particles2D" type="Particles2D" parent="Player Water"]
 position = Vector2( 0, -6.89697 )
 rotation = -1.5708
@@ -135,31 +130,31 @@ amount = 3
 lifetime = 3.0
 explosiveness = 0.5
 local_coords = false
-process_material = SubResource( 8 )
-texture = ExtResource( 8 )
+process_material = SubResource( 6 )
+texture = ExtResource( 7 )
 
-[node name="SharedLevel" parent="." instance=ExtResource( 9 )]
-terrain_tiles = ExtResource( 10 )
+[node name="SharedLevel" parent="." instance=ExtResource( 8 )]
+terrain_tiles = ExtResource( 9 )
 
 [node name="AirSection" type="Area2D" parent="."]
 position = Vector2( 1401.33, -167.31 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection"]
 position = Vector2( -66.5049, -77.9478 )
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="AirSection2" type="Area2D" parent="."]
 position = Vector2( 132.343, -167.31 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection2"]
 position = Vector2( -261.653, 80.3228 )
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="AirSection3" type="Area2D" parent="."]
 position = Vector2( 2057.26, -62.9839 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection3"]
 position = Vector2( -138.912, -158.302 )
@@ -167,7 +162,7 @@ shape = SubResource( 9 )
 
 [node name="AirSection4" type="Area2D" parent="."]
 position = Vector2( 2094.12, -7.67957 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection4"]
 position = Vector2( 172.688, -165.785 )
