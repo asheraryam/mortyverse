@@ -15,7 +15,7 @@ func get_bros():
 	for b in others:
 		if b != self and b.BOX_INDEX == BOX_INDEX:
 			bros.append(b)
-			print("Owner: " + b.owner.name)
+			print("Owner: " + b.owner.owner.name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -24,8 +24,8 @@ func get_bros():
 func set_active():
 	if not original_owner:
 		print("Box with no owner!")
-	if game.current_world == original_owner:
-		print("Setting box active in world " + original_owner.name)
+	if game.current_world == original_owner.owner:
+		print("Setting box active in world " + original_owner.owner.name)
 		set_target(null)
 		for b in bros:
 			b.set_target(self)

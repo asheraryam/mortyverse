@@ -107,7 +107,7 @@ func box_released(parallel = false):
 		var before_trans = grabbing_object.global_position
 		if not parallel:
 			remove_child(grabbing_object)
-			get_parent().get_node("Boxes Parent").add_child(grabbing_object)
+			get_parent().get_node("SharedLevel").get_node("Boxes Parent").add_child(grabbing_object)
 			grabbing_object.global_position = before_trans
 		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
 		remove_collision_exception_with(grabbing_object)
@@ -142,7 +142,7 @@ func set_target(_target):
 
 func grab_parallel_box(box):
 	for b in box.bros:
-		if b.original_owner == original_owner:
+		if b.original_owner.owner == original_owner:
 			set_box_grabbed(b, true)
 	
 

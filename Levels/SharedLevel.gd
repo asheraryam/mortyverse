@@ -1,10 +1,11 @@
-extends TileMap
+extends Node2D
 
-export(TileSet) var parallel_tileset
+export(TileSet) var terrain_tiles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tile_set = parallel_tileset
+	if terrain_tiles:
+		get_node("Terrain").tile_set = terrain_tiles
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

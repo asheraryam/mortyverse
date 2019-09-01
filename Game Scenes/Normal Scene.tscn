@@ -1,14 +1,13 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Sprites/morty/idle/3.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
-[ext_resource path="res://Parallel/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/SharedLevel1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=5]
 [ext_resource path="res://Sprites/Tilesets/tileset template.tres" type="TileSet" id=6]
 [ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=7]
 [ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=8]
-[ext_resource path="res://Levels/Terrain1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Tilesets/bushes.tres" type="TileSet" id=10]
 [ext_resource path="res://Sprites/environment/ref.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/environment/city background.png" type="Texture" id=12]
@@ -33,7 +32,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
@@ -51,7 +50,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 height = 26.0
 
 [node name="Normal Scene" type="Node2D" groups=[
@@ -87,7 +86,7 @@ texture = ExtResource( 11 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( 84.1915, 142.691 )
+position = Vector2( -150, 160 )
 collision_layer = 2
 collision_mask = 5
 mode = 2
@@ -98,14 +97,14 @@ can_sleep = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "jump"
 playing = true
 offset = Vector2( 0, -6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Normal"]
 position = Vector2( 0, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Normal"]
 current = true
@@ -122,22 +121,18 @@ cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
 
+[node name="Bushes" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 262135, 0, 393216, 262136, 0, 393218, 327671, 0, 65536, 327672, 0, 458754, 393207, 0, 524288, 393208, 0, 131074 )
+
 [node name="ChainFence" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
-
-[node name="Bushes" type="TileMap" parent="."]
-tile_set = ExtResource( 10 )
-cell_size = Vector2( 24, 24 )
-format = 1
-tile_data = PoolIntArray( 262141, 0, 393216, 262142, 0, 1, 262143, 0, 393218, 327677, 0, 458752, 327678, 0, 65537, 327679, 0, 458754, 393213, 0, 524288, 393214, 0, 524289, 393215, 0, 524290 )
-
-[node name="Boxes Parent" type="YSort" parent="."]
-
-[node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
-position = Vector2( 204.106, 106.854 )
 
 [node name="Grass" type="TileMap" parent="."]
 tile_set = ExtResource( 8 )
@@ -149,6 +144,6 @@ tile_data = PoolIntArray( 589816, 0, 0, 589817, 0, 393217, 589818, 0, 393217, 58
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 24, 24 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 2, 65536, 0, 458752, 65537, 0, 65538, 131072, 0, 458752, 131073, 0, 65538, 196608, 0, 524288, 196609, 0, 524290, 196611, 0, 589824, 196612, 0, 196609, 196613, 0, 589826 )
+tile_data = PoolIntArray( 196611, 0, 589824, 196612, 0, 196609, 196613, 0, 589826 )
 
-[node name="Terrain" parent="." instance=ExtResource( 9 )]
+[node name="SharedLevel" parent="." instance=ExtResource( 4 )]
