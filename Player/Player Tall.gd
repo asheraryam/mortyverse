@@ -21,8 +21,11 @@ func switch_tallness():
 		$Sprite.offset.y = -24
 		$Tall1.disabled = false
 		$Tall2.disabled = true
+		$RayLeft.enabled = false
+		$RayRight.enabled = false
+		$RayLeft1.enabled = true
+		$RayRight1.enabled = true
 		tallness = 2
-		$Sprite.play("default2")
 		play_anim(current_anim_base)
 	elif tallness == 2:
 		ray_left = get_node("RayLeft")
@@ -30,13 +33,15 @@ func switch_tallness():
 		$Sprite.offset.y = -12
 		$Tall1.disabled = false
 		$Tall2.disabled = false
+		$RayLeft1.enabled = false
+		$RayRight1.enabled = false
+		$RayLeft.enabled = true
+		$RayRight.enabled = true
 		tallness = 1
-		$Sprite.play("default1")
 		play_anim(current_anim_base)
 
 var current_anim_base 
 func play_anim(anim_name):
 	current_anim_base = anim_name
-	return
 	$Sprite.play(anim_name+str(tallness))
 	
