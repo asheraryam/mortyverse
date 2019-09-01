@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/CanvasLayerNormal.tscn" type="PackedScene" id=2]
@@ -23,11 +23,10 @@
 [ext_resource path="res://Sprites/morty/run/run4.png" type="Texture" id=21]
 [ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sprites/Tilesets/tileset template.tres" type="TileSet" id=23]
-[ext_resource path="res://Sprites/Tilesets/bushes.tres" type="TileSet" id=24]
-[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=25]
-[ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=26]
-[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=27]
-[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=24]
+[ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=25]
+[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=26]
+[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=27]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -70,7 +69,7 @@ texture = ExtResource( 3 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( 1787.19, -32.589 )
+position = Vector2( -550.574, 125.523 )
 collision_layer = 2
 collision_mask = 21
 mode = 2
@@ -105,29 +104,23 @@ cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
 
-[node name="Bushes" type="TileMap" parent="."]
-z_index = -1
-tile_set = ExtResource( 24 )
-cell_size = Vector2( 24, 24 )
-format = 1
-tile_data = PoolIntArray( 262135, 0, 393216, 262136, 0, 393218, 327671, 0, 65536, 327672, 0, 458754, 393207, 0, 524288, 393208, 0, 131074 )
-
 [node name="ChainFence" type="TileMap" parent="."]
-tile_set = ExtResource( 25 )
+tile_set = ExtResource( 24 )
 cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
 
 [node name="Grass" type="TileMap" parent="."]
-tile_set = ExtResource( 26 )
+tile_set = ExtResource( 25 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 589816, 0, 0, 589817, 0, 393217, 589818, 0, 393217, 589819, 0, 393217, 589820, 0, 1, 589821, 0, 393217, 589822, 0, 393217, 589823, 0, 2, 655352, 0, 524288, 655353, 0, 524289, 655354, 0, 524289, 655355, 0, 131073, 655356, 0, 131073, 655357, 0, 131073, 655358, 0, 131073, 655359, 0, 131074 )
 
 [node name="Concrete" type="TileMap" parent="."]
-tile_set = ExtResource( 27 )
+visible = false
+tile_set = ExtResource( 26 )
 cell_size = Vector2( 24, 24 )
 format = 1
-tile_data = PoolIntArray( 196611, 0, 589824, 196612, 0, 196609, 196613, 0, 589826 )
+tile_data = PoolIntArray( 196611, 0, 589824, 196612, 0, 196609, 196613, 0, 589826, 458731, 0, 589824, 458732, 0, 196609, 458733, 0, 589825, 458734, 0, 196610 )
 
-[node name="SharedLevel" parent="." instance=ExtResource( 28 )]
+[node name="SharedLevel" parent="." instance=ExtResource( 27 )]
