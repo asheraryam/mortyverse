@@ -70,7 +70,7 @@ texture = ExtResource( 3 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( -488.486, 103.388 )
+position = Vector2( 1787.19, -32.589 )
 collision_layer = 2
 collision_mask = 21
 mode = 2

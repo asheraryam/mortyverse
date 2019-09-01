@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Levels/SharedLevel.gd" type="Script" id=1]
 [ext_resource path="res://Levels/lvl1.png" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://Levels/lvl2.png" type="Texture" id=8]
 [ext_resource path="res://Levels/lvl 3.png" type="Texture" id=9]
 [ext_resource path="res://Levels/lvl4.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/flip.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/grab.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/phase.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/rickwashere.png" type="Texture" id=14]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 1.5
@@ -104,11 +108,11 @@ BOX_INDEX = 12
 [node name="Box10" parent="Boxes Parent" instance=ExtResource( 5 )]
 position = Vector2( 1955.86, -12.1661 )
 physics_material_override = SubResource( 1 )
-BOX_INDEX = 12
+BOX_INDEX = 13
 
 [node name="Artifact3" parent="Boxes Parent" instance=ExtResource( 7 )]
 position = Vector2( 2245.16, 37.3052 )
-BOX_INDEX = 13
+BOX_INDEX = 14
 
 [node name="lvl2" type="Sprite" parent="."]
 visible = false
@@ -128,3 +132,27 @@ visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 2174.63, 24.6573 )
 texture = ExtResource( 10 )
+
+[node name="Instructions" type="Node2D" parent="."]
+position = Vector2( -458.231, 25.6248 )
+
+[node name="flip" type="Sprite" parent="Instructions"]
+position = Vector2( 300.754, 185.616 )
+texture = ExtResource( 11 )
+
+[node name="grab" type="Sprite" parent="Instructions"]
+position = Vector2( 98.1736, 191.541 )
+texture = ExtResource( 12 )
+
+[node name="phase" type="Sprite" parent="Instructions/grab"]
+position = Vector2( 762.32, -47.1083 )
+texture = ExtResource( 13 )
+
+[node name="rickwashere" type="Sprite" parent="Instructions/grab"]
+visible = false
+position = Vector2( 1302.39, -93.3611 )
+texture = ExtResource( 14 )
+
+[node name="rickwashere2" type="Sprite" parent="Instructions/grab"]
+position = Vector2( 1924.08, -97.4423 )
+texture = ExtResource( 14 )
