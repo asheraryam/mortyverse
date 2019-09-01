@@ -5,6 +5,8 @@
 
 [sub_resource type="PhysicsMaterial" id=4]
 friction = 1.5
+rough = true
+absorbent = true
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 2.0
