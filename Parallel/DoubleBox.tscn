@@ -3,8 +3,8 @@
 [ext_resource path="res://Sprites/doublecrate.png" type="Texture" id=1]
 [ext_resource path="res://Parallel/Box.gd" type="Script" id=2]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 2.0
+[sub_resource type="PhysicsMaterial" id=7]
+friction = 1.5
 rough = true
 absorbent = true
 
@@ -23,14 +23,14 @@ radius = 2.0
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 22, 11.5 )
 
-[node name="Box" type="RigidBody2D" groups=[
+[node name="DoubleBox" type="RigidBody2D" groups=[
 "box",
 ]]
 collision_layer = 4
 collision_mask = 7
 mode = 2
 mass = 2.04082
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 7 )
 continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
