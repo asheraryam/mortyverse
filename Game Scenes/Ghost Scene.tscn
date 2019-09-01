@@ -1,38 +1,38 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Sprites/morty/ghost/4.png" type="Texture" id=1]
+[ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Player/Ghost Player.gd" type="Script" id=2]
-[ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
-[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/morty/ghost/1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/morty/ghost/2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/morty/ghost/3.png" type="Texture" id=5]
-[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=6]
-[ext_resource path="res://Sprites/morty/ghost/1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/morty/ghost/2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/morty/ghost/4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=7]
+[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=8]
+[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "phase",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run",
 "speed": 5.0
 } ]
 
@@ -45,8 +45,8 @@ radius = 5.0
 [node name="Ghost Scene" type="Node2D" groups=[
 "world",
 ]]
-script = ExtResource( 3 )
-INDEX = 3
+script = ExtResource( 1 )
+INDEX = 2
 player = NodePath("Player Ghost")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -61,7 +61,6 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-layer = -1
 
 [node name="Player Ghost" type="RigidBody2D" parent="." groups=[
 "player",
@@ -100,7 +99,7 @@ shape = SubResource( 3 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player Ghost"]
-anims/phase = ExtResource( 6 )
+anims/phase = ExtResource( 8 )
 
 [node name="StuckInside" type="Area2D" parent="Player Ghost"]
 collision_layer = 2
@@ -110,5 +109,5 @@ collision_mask = 5
 position = Vector2( 0, 1.36075 )
 shape = SubResource( 4 )
 
-[node name="SharedLevel" parent="." instance=ExtResource( 4 )]
+[node name="SharedLevel" parent="." instance=ExtResource( 9 )]
 [connection signal="timeout" from="Player Ghost/Phase Timer" to="Player Ghost" method="phase_timout"]
