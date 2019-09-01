@@ -1,39 +1,40 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
-[ext_resource path="res://Player/Ghost Player.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/morty/ghost/1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/morty/ghost/2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/morty/ghost/3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/morty/ghost/4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=7]
-[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=8]
-[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=10]
+[ext_resource path="res://Sprites/environment/city background bw.png" type="Texture" id=2]
+[ext_resource path="res://Player/Ghost Player.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/morty/ghost/1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/morty/ghost/2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/morty/ghost/3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/morty/ghost/4.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=8]
+[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=9]
+[ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "phase",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "phase",
 "speed": 5.0
 } ]
 
@@ -62,6 +63,13 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_limit_end = Vector2( 360, 240 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 180, 180 )
+texture = ExtResource( 2 )
 
 [node name="Player Ghost" type="RigidBody2D" parent="." groups=[
 "player",
@@ -74,7 +82,7 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 can_grab_box = false
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Ghost"]
@@ -100,7 +108,7 @@ shape = SubResource( 3 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player Ghost"]
-anims/phase = ExtResource( 8 )
+anims/phase = ExtResource( 9 )
 
 [node name="StuckInside" type="Area2D" parent="Player Ghost"]
 collision_layer = 2
@@ -110,6 +118,6 @@ collision_mask = 5
 position = Vector2( 0, 1.36075 )
 shape = SubResource( 4 )
 
-[node name="SharedLevel" parent="." instance=ExtResource( 9 )]
-terrain_tiles = ExtResource( 10 )
+[node name="SharedLevel" parent="." instance=ExtResource( 10 )]
+terrain_tiles = ExtResource( 11 )
 [connection signal="timeout" from="Player Ghost/Phase Timer" to="Player Ghost" method="phase_timout"]

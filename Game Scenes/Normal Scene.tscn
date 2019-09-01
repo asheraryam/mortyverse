@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/environment/city background.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Background/CanvasLayerNormal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/environment/ref.png" type="Texture" id=3]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/morty/idle/1.png" type="Texture" id=5]
@@ -60,22 +60,7 @@ height = 26.0
 script = ExtResource( 1 )
 player = NodePath("Player Normal")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-margin_right = 360.0
-margin_bottom = 240.0
-color = Color( 0.631373, 0.937255, 0.980392, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-
-[node name="city background" type="Sprite" parent="CanvasLayer/ParallaxBackground"]
-position = Vector2( 172.175, 159.162 )
-texture = ExtResource( 2 )
+[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="ref" type="Sprite" parent="."]
 position = Vector2( 181.481, 409.961 )
