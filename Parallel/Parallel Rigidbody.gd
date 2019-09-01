@@ -58,7 +58,7 @@ func _physics_process(delta):
 	_on_physics_process(delta)
 	
 func _on_physics_process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and found_floor:
 		print("Grabbing with " + name)
 		if grabbing_object:
 			box_released(false)
@@ -160,11 +160,12 @@ export(int) var WALK_DEACCEL = 500
 export(int) var JUMP_VELOCITY = 120
 export(int) var AIR_ACCEL = 400
 export(int) var AIR_DEACCEL = 120
+var found_floor = false
+
 func _integrate_forces(s):
 	# Find the floor (a contact with upwards facing collision normal)
-	var found_floor = false
 	var floor_index = -1
-	
+	found_floor = false
 	var box_landed = false
 	
 	for x in range(s.get_contact_count()):
