@@ -189,7 +189,7 @@ position = Vector2( 98.1736, 180.252 )
 texture = ExtResource( 17 )
 
 [node name="end message" type="Sprite" parent="Instructions"]
-position = Vector2( 2762.86, 114.722 )
+position = Vector2( 2699.33, -49.8084 )
 texture = ExtResource( 18 )
 
 [node name="Brick" parent="." instance=ExtResource( 19 )]
