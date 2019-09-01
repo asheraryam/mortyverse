@@ -5,6 +5,7 @@ export(int) var INDEX = 0
 
 export(NodePath) var player 
 
+
 var player_node
 
 

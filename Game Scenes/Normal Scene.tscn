@@ -53,7 +53,7 @@ texture = ExtResource( 11 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( 208.046, 87.3519 )
+position = Vector2( 84.1915, 142.691 )
 collision_layer = 2
 collision_mask = 5
 mode = 2
@@ -74,9 +74,10 @@ shape = SubResource( 2 )
 current = true
 
 [node name="CollisionShape2D2" parent="Player Normal" instance=ExtResource( 13 )]
+position = Vector2( -7, 22 )
 
 [node name="CollisionShape2D3" parent="Player Normal" instance=ExtResource( 13 )]
-position = Vector2( 8, 22 )
+position = Vector2( 7, 22 )
 
 [node name="TestTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -99,7 +100,7 @@ tile_data = PoolIntArray( 262141, 0, 393216, 262142, 0, 1, 262143, 0, 393218, 32
 [node name="Boxes Parent" type="YSort" parent="."]
 
 [node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
-position = Vector2( 280.527, 57.049 )
+position = Vector2( 204.106, 106.854 )
 
 [node name="Grass" type="TileMap" parent="."]
 tile_set = ExtResource( 8 )

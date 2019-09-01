@@ -3,6 +3,8 @@ extends RigidBody2D
 var velocity : Vector2 = Vector2(0,0)
 var parallel_target = null
 
+export(bool) var can_jump = true
+
 export(bool) var allow_many_jumps = false
 
 var ray_down : RayCast2D
@@ -173,7 +175,7 @@ func _integrate_forces(s):
 		# Get the controls
 		var move_left = Input.is_action_pressed("move_left")
 		var move_right = Input.is_action_pressed("move_right")
-		var jump = Input.is_action_pressed("jump")
+		var jump = Input.is_action_pressed("jump") and can_jump
 		var new_jump = Input.is_action_just_pressed("jump")
 #			var shoot = Input.is_action_pressed("shoot")
 #			var spawn = Input.is_action_pressed("spawn")

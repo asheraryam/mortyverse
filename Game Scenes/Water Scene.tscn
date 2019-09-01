@@ -63,14 +63,15 @@ collide_with_areas = true
 current = true
 
 [node name="CollisionShape2D2" parent="Player Water" instance=ExtResource( 7 )]
+position = Vector2( -7, 22 )
 
 [node name="CollisionShape2D3" parent="Player Water" instance=ExtResource( 7 )]
-position = Vector2( 8, 22 )
+position = Vector2( 7, 22 )
 
 [node name="Boxes Parent" type="YSort" parent="."]
 
 [node name="Box" parent="Boxes Parent" instance=ExtResource( 4 )]
-position = Vector2( 210.743, 80.4911 )
+position = Vector2( 203.984, 68.2242 )
 
 [node name="Terrain" parent="." instance=ExtResource( 5 )]
 parallel_tileset = ExtResource( 6 )
