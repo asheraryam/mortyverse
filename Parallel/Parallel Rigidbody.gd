@@ -58,12 +58,12 @@ func _physics_process(delta):
 	_on_physics_process(delta)
 	
 func _on_physics_process(delta):
-	if Input.is_action_just_pressed("interact") and found_floor:
+	if Input.is_action_just_pressed("interact"):
 		print("Grabbing with " + name)
 		if grabbing_object:
 			box_released(false)
 #			grabbing_object.call_deferred("set_released")
-		else:
+		elif found_floor:
 			print("Try interact")
 			var col
 			if siding_left:
@@ -359,6 +359,12 @@ func _integrate_forces(s):
 		if box_stuck:
 #			if lv.y >0:
 			lv.y = -1.6
+		
+		if _force_position_requested:
+			_force_position_requested = false
+			var xform = s.get_transform()
+			xform.origin = _forced_position
+			s.set_transform(xform)
 
 		s.set_linear_velocity(lv)
 	else:
@@ -374,6 +380,12 @@ var phase_vector : Vector2
 var _reset_walk_requested = false
 func force_reset_walk():
 	_reset_walk_requested = true
+
+var _force_position_requested = false
+var _forced_position : Vector2 
+func force_position(pos):
+	_forced_position = pos
+	_force_position_requested = true
 
 func dimensional_play_anim(anim_name):
 	var players = get_tree().get_nodes_in_group("player")

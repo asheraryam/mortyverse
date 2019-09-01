@@ -17,7 +17,7 @@ func _ready():
 	phase_tween = Tween.new()
 	
 
-
+var pre_phase_position: Vector2
 func _on_physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		get_node("CollisionShape2D").disabled = true
@@ -30,6 +30,7 @@ func _on_physics_process(delta):
 			impulse.x += PHASE_FORCE
 		
 		phase_vector = impulse
+		pre_phase_position = global_position
 		phase_tween.interpolate_property(
 		self,"phase_vector",impulse,Vector2(0,0), 
 		phase_timer.wait_time,
@@ -41,7 +42,13 @@ func _on_physics_process(delta):
 
 func phase_timout():
 	get_node("CollisionShape2D").disabled = false
+	var bodies =  $StuckInside.get_overlapping_bodies()
+	if bodies.size() > 0:
+		print("Ghost stuck")
+		force_position(pre_phase_position)
 	force_reset_walk()
+	
+		
 
 
 
