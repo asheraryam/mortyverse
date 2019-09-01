@@ -62,4 +62,8 @@ func set_released():
 		print("boxes owner " + str(b.original_owner.name))
 		b.original_owner.player_node.parallel_release()
 
-
+func self_destruct():
+	hide()
+	$CollisionShape2D.disabled = true
+	remove_child($CollisionShape2D)
+#	call_deferred("queue_free")

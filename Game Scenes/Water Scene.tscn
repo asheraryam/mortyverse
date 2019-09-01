@@ -56,7 +56,7 @@ __meta__ = {
 ]]
 position = Vector2( 170.097, 67.8208 )
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 mode = 2
 physics_material_override = SubResource( 1 )
 contacts_reported = 5

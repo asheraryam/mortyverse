@@ -86,9 +86,9 @@ texture = ExtResource( 11 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( -550, 135.546 )
+position = Vector2( 930, 47.8547 )
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 mode = 2
 physics_material_override = SubResource( 1 )
 contacts_reported = 5

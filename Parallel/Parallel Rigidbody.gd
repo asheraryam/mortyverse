@@ -395,3 +395,7 @@ func dimensional_play_anim(anim_name):
 
 func play_anim(anim_name):
 	$Sprite.play(anim_name)
+
+func collect_artifact(thing : PhysicsBody2D):
+	thing.self_destruct()
+	# play collect sfx

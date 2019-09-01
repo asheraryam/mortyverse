@@ -1,22 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/pizza.png" type="Texture" id=1]
-[ext_resource path="res://Parallel/Box.gd" type="Script" id=2]
+[ext_resource path="res://Parallel/Artifact.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=7]
 friction = 0.0
 bounce = 0.3
-absorbent = true
 
 [sub_resource type="CircleShape2D" id=8]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id=9]
 radius = 9.0
 
 [node name="Artifact" type="RigidBody2D" groups=[
 "box",
 ]]
-collision_layer = 4
-collision_mask = 7
-mass = 0.510204
+collision_layer = 16
+collision_mask = 5
+mass = 0.102041
 physics_material_override = SubResource( 7 )
 continuous_cd = 1
 contacts_reported = 5
@@ -34,3 +36,12 @@ shape = SubResource( 8 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 12 )
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 9 )
+[connection signal="body_entered" from="CollectArea" to="." method="_on_CollectArea_body_entered"]

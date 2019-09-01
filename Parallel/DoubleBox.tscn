@@ -27,7 +27,7 @@ extents = Vector2( 22, 11.5 )
 "box",
 ]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 23
 mode = 2
 mass = 2.04082
 physics_material_override = SubResource( 7 )
