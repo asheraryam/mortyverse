@@ -25,7 +25,7 @@ func set_active():
 	if not original_owner:
 		print("Box with no owner!")
 	if game.current_world == original_owner.owner:
-		print("Setting box active in world " + original_owner.owner.name)
+#		print("Setting box active in world " + original_owner.owner.name)
 		set_target(null)
 		for b in bros:
 			b.set_target(self)
@@ -52,15 +52,39 @@ func _integrate_forces(s):
 		var xform = s.get_transform()
 		xform.origin = parallel_target.global_position
 		s.set_transform(xform)
+	elif _check_overlap:
+		_check_overlap = false
+#		var bodies = $OverlapArea.get_overlapping_bodies()
+#		if bodies.size() > 0:
+		var count = s.get_contact_count()
+		if count> 0:
+			for x in range(s.get_contact_count()):
+				var thing = s.get_contact_collider_object(x)
+				if thing != grabbing_player:
+					print("Box overlap")
+					s.set_linear_velocity(Vector2())
+					var xform = s.get_transform()
+					xform.origin = pre_grab_pos
+					s.set_transform(xform)
+					break
 
-func set_grabbed():
-	for b in bros:
-		b.original_owner.player_node.parallel_grab(b)
+var pre_grab_pos
+var grabbing_player
+func set_grabbed(player):
+	pre_grab_pos = global_position
+	grabbing_player = player
+#	for b in bros:
+#		b.original_owner.player_node.parallel_grab(b)
 
-func set_released():
-	for b in bros:
-		print("boxes owner " + str(b.original_owner.name))
-		b.original_owner.player_node.parallel_release()
+var _check_overlap = false
+func set_released(player):
+	pass
+#	_check_overlap = true
+	
+#	for b in bros:
+#		print("boxes owner " + str(b.original_owner.name))
+#		b.original_owner.player_node.parallel_release()
+	
 
 func self_destruct():
 	hide()
