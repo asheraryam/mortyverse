@@ -19,8 +19,8 @@ func switch_tallness():
 		ray_left = get_node("RayLeft1")
 		ray_right = get_node("RayRight1")
 		$Sprite.offset.y = -24
-		$Tall1.disabled = false
-		$Tall2.disabled = true
+#		$Tall1.disabled = true
+		$Tall2.disabled = false
 		$RayLeft.enabled = false
 		$RayRight.enabled = false
 		$RayLeft1.enabled = true
@@ -31,8 +31,8 @@ func switch_tallness():
 		ray_left = get_node("RayLeft")
 		ray_right = get_node("RayRight")
 		$Sprite.offset.y = -12
-		$Tall1.disabled = false
-		$Tall2.disabled = false
+#		$Tall1.disabled = false
+		$Tall2.disabled = true
 		$RayLeft1.enabled = false
 		$RayRight1.enabled = false
 		$RayLeft.enabled = true

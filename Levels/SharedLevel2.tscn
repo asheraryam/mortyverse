@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Tilesets/terrain normal.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Levels/SharedLevel.gd" type="Script" id=4]
 [ext_resource path="res://Levels/lvl1.png" type="Texture" id=5]
 [ext_resource path="res://Levels/lvl2.png" type="Texture" id=6]
+[ext_resource path="res://Parallel/DoubleBox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 1.5
@@ -71,7 +72,12 @@ position = Vector2( 1548.23, -85.6124 )
 physics_material_override = SubResource( 1 )
 BOX_INDEX = 6
 
+[node name="Double" parent="Boxes Parent" instance=ExtResource( 7 )]
+position = Vector2( 1296.11, 37.8547 )
+BOX_INDEX = 7
+
 [node name="lvl2" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 1180.32, 0.305221 )
 texture = ExtResource( 6 )
