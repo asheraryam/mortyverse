@@ -89,6 +89,8 @@ func parallel_release():
 	box_released(true)
 	
 func set_box_grabbed(col, parallel= false):
+	col.add_collision_exception_with(self)
+	add_collision_exception_with(col)
 	grabbing_object = col
 	var before_trans = col.global_position
 	col.mode =RigidBody2D.MODE_KINEMATIC
@@ -97,10 +99,11 @@ func set_box_grabbed(col, parallel= false):
 		add_child(col)
 		col.global_position = before_trans
 		col.global_position.y -= 12
-	add_collision_exception_with(col)
 
 func box_released(parallel = false):
 	if grabbing_object:
+		grabbing_object.remove_collision_exception_with(self)
+		box_stuck = false
 		var before_trans = grabbing_object.global_position
 		if not parallel:
 			remove_child(grabbing_object)
@@ -149,6 +152,7 @@ var airborne_time = 0
 var MAX_FLOOR_AIRBORNE_TIME = 0.5
 var jumping = false
 var stopping_jump
+var box_stuck
 export(int) var STOP_JUMP_FORCE = 200
 export(int) var WALK_MAX_VELOCITY = 150
 export(int) var WALK_ACCEL = 600
@@ -161,11 +165,14 @@ func _integrate_forces(s):
 	var found_floor = false
 	var floor_index = -1
 	
+	var box_landed = false
+	
 	for x in range(s.get_contact_count()):
 		var ci = s.get_contact_local_normal(x)
 		if ci.dot(Vector2(0, -1)) > 0.6:
 			found_floor = true
 			floor_index = x
+		
 	if is_physics_processing():
 		var lv = s.get_linear_velocity()
 		var step = s.get_step()
@@ -339,6 +346,11 @@ func _integrate_forces(s):
 			lv.x = 0
 		if has_node("Phase Timer") and not get_node("Phase Timer").is_stopped():
 			lv = phase_vector
+		if grabbing_object and grabbing_object.found_floor:
+			box_stuck = true
+		if box_stuck:
+#			if lv.y >0:
+			lv.y = -1.6
 		s.set_linear_velocity(lv)
 	else:
 		pass

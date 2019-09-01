@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Sprites/morty.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/morty/idle/3.png" type="Texture" id=1]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=2]
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=3]
 [ext_resource path="res://Parallel/Box.tscn" type="PackedScene" id=4]
@@ -13,9 +13,34 @@
 [ext_resource path="res://Sprites/environment/ref.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/environment/city background.png" type="Texture" id=12]
 [ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/morty/idle/1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/morty/idle/2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/morty/idle/4.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/morty/idle/5.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/morty/idle/8.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/morty/idle/10.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/morty/idle/11.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/morty/idle/12.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/morty/idle/7.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/morty/idle/6.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/morty/idle/9.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/morty.png" type="Texture" id=25]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 26.0
@@ -63,8 +88,11 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Player Normal"]
-texture = ExtResource( 1 )
+[node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
+frames = SubResource( 3 )
+frame = 8
+playing = true
+offset = Vector2( 0, -6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Normal"]
 position = Vector2( 0, 1 )
