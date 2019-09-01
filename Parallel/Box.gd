@@ -39,16 +39,16 @@ func set_target(_target):
 var found_floor = false
 var floor_index
 func _integrate_forces(s):
+#	found_floor = false
+#	floor_index = -1
+#	var count = s.get_contact_count() -1
+#	for x in range(count):
+#		var ci = s.get_contact_local_normal(x)
+#		if ci.dot(Vector2(0, -1)) > 0.6:
+#			found_floor = true
+#			floor_index = x
+				
 	if parallel_target:
-		found_floor = false
-		floor_index = -1
-		var count = s.get_contact_count() -1
-		for x in range(count):
-			var ci = s.get_contact_local_normal(x)
-			if ci.dot(Vector2(0, -1)) > 0.6:
-				found_floor = true
-				floor_index = x
-			
 		var xform = s.get_transform()
 		xform.origin = parallel_target.global_position
 		s.set_transform(xform)

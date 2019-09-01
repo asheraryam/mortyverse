@@ -13,8 +13,6 @@ var player_node
 func _ready():
 	player_node = get_node(player)
 
-
-
 func set_active():
 	print("Set world active " + str(INDEX))
 	game.current_world = self

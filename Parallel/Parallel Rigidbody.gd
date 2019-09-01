@@ -94,10 +94,10 @@ func set_box_grabbed(col, parallel= false):
 	grabbing_object = col
 	var before_trans = col.global_position
 	col.mode =RigidBody2D.MODE_KINEMATIC
+	col.get_parent().remove_child(col)
+	add_child(col)
+	col.global_position = before_trans
 	if not parallel:
-		col.get_parent().remove_child(col)
-		add_child(col)
-		col.global_position = before_trans
 		col.global_position.y -= 12
 
 func box_released(parallel = false):
@@ -143,7 +143,7 @@ func set_target(_target):
 func grab_parallel_box(box):
 	for b in box.bros:
 		if b.original_owner == original_owner:
-			set_box_grabbed(b)
+			set_box_grabbed(b, true)
 	
 
 var siding_left = false
@@ -183,7 +183,7 @@ func _integrate_forces(s):
 		var move_left = Input.is_action_pressed("move_left")
 		var move_right = Input.is_action_pressed("move_right")
 		var jump = Input.is_action_pressed("jump") and can_jump
-		var new_jump = Input.is_action_just_pressed("jump")
+		var new_jump = Input.is_action_just_pressed("jump") and can_jump
 #			var shoot = Input.is_action_pressed("shoot")
 #			var spawn = Input.is_action_pressed("spawn")
 		
@@ -264,7 +264,7 @@ func _integrate_forces(s):
 				lv.x = sign(lv.x) * xv
 			
 			# Check jump
-			if not jumping and jump and found_floor:
+			if not jumping and new_jump and found_floor:
 				lv.y = -JUMP_VELOCITY
 				jumping = true
 				stopping_jump = false
@@ -338,6 +338,13 @@ func _integrate_forces(s):
 			floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
 			lv.x += floor_h_velocity
 		
+		if abs(lv.y) > 0.5:
+			dimensional_play_anim("jump")
+		else:
+			if abs(lv.x) > 0.5:
+				dimensional_play_anim("run")
+			else:
+				dimensional_play_anim("default")
 		# Finally, apply gravity and set back the linear velocity
 		if not has_node("Phase Timer") or get_node("Phase Timer").is_stopped():
 			lv += s.get_total_gravity() * step
@@ -351,6 +358,7 @@ func _integrate_forces(s):
 		if box_stuck:
 #			if lv.y >0:
 			lv.y = -1.6
+
 		s.set_linear_velocity(lv)
 	else:
 		pass
@@ -365,3 +373,11 @@ var phase_vector : Vector2
 var _reset_walk_requested = false
 func force_reset_walk():
 	_reset_walk_requested = true
+
+func dimensional_play_anim(anim_name):
+	var players = get_tree().get_nodes_in_group("player")
+	for p in players:
+		p.play_anim(anim_name)
+
+func play_anim(anim_name):
+	$Sprite.play(anim_name)
