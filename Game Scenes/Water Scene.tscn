@@ -1,45 +1,31 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/morty/idle/3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/morty/swim/swim 2.png" type="Texture" id=1]
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=2]
 [ext_resource path="res://Player/Water Player.gd" type="Script" id=3]
 [ext_resource path="res://Parallel/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Terrain1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=6]
 [ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/morty/idle/1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/idle/2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/morty/run/run2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/morty/idle/4.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/morty/idle/5.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/morty/idle/8.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/morty/idle/10.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/morty/idle/11.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/morty/idle/12.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/morty/run/run1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/morty/run/run4.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/morty/idle/7.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/morty/run/run3.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/morty/jump/jump.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/morty/idle/6.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/morty/idle/9.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/morty/swim/swim 3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/morty/swim/swim 1.png" type="Texture" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
+"frames": [ ExtResource( 9 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"loop": false,
 "name": "jump",
-"speed": 5.0
+"speed": 15.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
@@ -84,7 +70,7 @@ allow_many_jumps = true
 [node name="Sprite" type="AnimatedSprite" parent="Player Water"]
 frames = SubResource( 3 )
 animation = "jump"
-offset = Vector2( 0, -6 )
+offset = Vector2( 0, -1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Water"]
 position = Vector2( 0, 1 )

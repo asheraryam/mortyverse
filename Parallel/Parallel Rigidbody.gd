@@ -338,7 +338,7 @@ func _integrate_forces(s):
 			floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
 			lv.x += floor_h_velocity
 		
-		if abs(lv.y) > 0.5:
+		if (allow_many_jumps and (new_jump or jumping)) or (not allow_many_jumps and abs(lv.y)>0.5):
 			dimensional_play_anim("jump")
 		else:
 			if abs(lv.x) > 0.5:
