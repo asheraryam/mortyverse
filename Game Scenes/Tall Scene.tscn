@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Sprites/morty/tall run 2/run tall A 3.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player Tall.gd" type="Script" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=5]
 [ext_resource path="res://Levels/Terrain1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player/CircleCornerShape.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/morty/tall morty 1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/tall morty 2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/morty/tall run 2/run tall A 2.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/morty/tall run 1/run tall 3.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/morty/tall run 1/run tall 2.png" type="Texture" id=12]
@@ -16,6 +14,30 @@
 [ext_resource path="res://Sprites/morty/tall run 2/run tall A 1.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/morty/tall run 1/run tall 4.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/morty/tall run 2/run tall A 4.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 5.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 8.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 9.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 10.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 3.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 7.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 12.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 11.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 11.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 6.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 7.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 3.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 12.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 4.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 2.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 10.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 8.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 5.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 6.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 4.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 9.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 2.png" type="Texture" id=40]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -30,17 +52,17 @@ animations = [ {
 "name": "run2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "jump2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 40 ), ExtResource( 30 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 39 ), ExtResource( 22 ), ExtResource( 27 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "default1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "jump1",
 "speed": 5.0
@@ -50,7 +72,7 @@ animations = [ {
 "name": "run1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 33 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 18 ), ExtResource( 37 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "default2",
 "speed": 5.0
