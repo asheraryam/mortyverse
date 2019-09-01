@@ -45,3 +45,9 @@ func phase_timout():
 	
 
 
+func play_anim(anim_name):
+	if phase_timer.is_stopped():
+		$Sprite.play(anim_name)
+	else:
+		$Sprite.play("phase")
+		
