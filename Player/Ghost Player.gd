@@ -7,19 +7,13 @@ var phase_timer : Timer
 var phase_tween : Tween
 
 func _ready():
-	phase_timer = Timer.new()
-	phase_timer.name = "Phase Timer"
-	add_child(phase_timer)
-	phase_timer.one_shot = true
-	phase_timer.wait_time = 0.3
-	phase_timer.connect("timeout",self,"phase_timout")
-	
+	phase_timer = get_node("Phase Timer")
 	phase_tween = Tween.new()
 	
 
 var pre_phase_position: Vector2
 func _on_physics_process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not penalty_active:
 		get_node("CollisionShape2D").disabled = true
 		if not phase_timer.is_stopped():
 			return
@@ -46,10 +40,10 @@ func phase_timout():
 	if bodies.size() > 0:
 		print("Ghost stuck")
 		force_position(pre_phase_position)
+		$"Penalty Timer".start()
 	force_reset_walk()
 	
-		
 
-
-
-
+var penalty_active = false
+func _on_Penalty_timeout():
+	penalty_active = false

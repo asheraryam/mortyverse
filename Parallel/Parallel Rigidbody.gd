@@ -4,6 +4,7 @@ var velocity : Vector2 = Vector2(0,0)
 var parallel_target = null
 
 export(bool) var can_jump = true
+export(bool) var can_grab_box = true
 
 export(bool) var allow_many_jumps = false
 
@@ -58,7 +59,7 @@ func _physics_process(delta):
 	_on_physics_process(delta)
 	
 func _on_physics_process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and can_grab_box:
 		print("Grabbing with " + name)
 		if grabbing_object:
 			box_released(false)
@@ -361,10 +362,10 @@ func _integrate_forces(s):
 			lv.y = -1.6
 		
 		if _force_position_requested:
-			_force_position_requested = false
 			var xform = s.get_transform()
 			xform.origin = _forced_position
 			s.set_transform(xform)
+			_force_position_requested = false
 
 		s.set_linear_velocity(lv)
 	else:

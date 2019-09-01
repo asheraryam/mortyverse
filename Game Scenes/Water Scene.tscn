@@ -64,6 +64,7 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 3 )
+can_grab_box = false
 allow_many_jumps = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Water"]

@@ -83,11 +83,19 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
+can_grab_box = false
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Ghost"]
 modulate = Color( 1, 1, 1, 0.998502 )
 frames = SubResource( 2 )
 offset = Vector2( 0, -6 )
+
+[node name="Phase Timer" type="Timer" parent="Player Ghost"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Penalty Timer" type="Timer" parent="Player Ghost"]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Ghost"]
 position = Vector2( 0, 1 )
@@ -108,3 +116,5 @@ shape = SubResource( 4 )
 
 [node name="SharedLevel" parent="." instance=ExtResource( 4 )]
 terrain_tiles = ExtResource( 7 )
+[connection signal="timeout" from="Player Ghost/Phase Timer" to="Player Ghost" method="phase_timout"]
+[connection signal="timeout" from="Player Ghost/Penalty Timer" to="Player Ghost" method="_on_Penalty_timeout"]
