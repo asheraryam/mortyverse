@@ -13,7 +13,7 @@ func _ready():
 
 var pre_phase_position: Vector2
 func _on_physics_process(delta):
-	if Input.is_action_just_pressed("interact") and not penalty_active:
+	if Input.is_action_just_pressed("interact") and $"Penalty Timer".is_stopped():
 		get_node("CollisionShape2D").disabled = true
 		if not phase_timer.is_stopped():
 			return
@@ -44,6 +44,4 @@ func phase_timout():
 	force_reset_walk()
 	
 
-var penalty_active = false
-func _on_Penalty_timeout():
-	penalty_active = false
+

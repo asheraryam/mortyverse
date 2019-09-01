@@ -95,6 +95,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="Penalty Timer" type="Timer" parent="Player Ghost"]
+wait_time = 0.1
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Ghost"]
@@ -117,4 +118,3 @@ shape = SubResource( 4 )
 [node name="SharedLevel" parent="." instance=ExtResource( 4 )]
 terrain_tiles = ExtResource( 7 )
 [connection signal="timeout" from="Player Ghost/Phase Timer" to="Player Ghost" method="phase_timout"]
-[connection signal="timeout" from="Player Ghost/Penalty Timer" to="Player Ghost" method="_on_Penalty_timeout"]
