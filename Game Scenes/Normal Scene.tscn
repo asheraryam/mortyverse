@@ -13,7 +13,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 30.0
 
@@ -48,15 +48,17 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 6 )
 
-[node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
-frames = ExtResource( 7 )
-frame = 5
-playing = true
-offset = Vector2( 0, -6 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Normal"]
 position = Vector2( 0, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
+position = Vector2( 0, 0.846073 )
+frames = ExtResource( 7 )
+animation = "grab"
+frame = 1
+playing = true
+offset = Vector2( 0, -6 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Normal"]
 current = true
