@@ -138,7 +138,7 @@ process_material = SubResource( 6 )
 texture = ExtResource( 9 )
 
 [node name="AirSection" type="Area2D" parent="."]
-position = Vector2( 1401.33, -167.31 )
+position = Vector2( 1401.33, -171.822 )
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection"]
@@ -146,7 +146,7 @@ position = Vector2( -66.5049, -77.9478 )
 shape = SubResource( 7 )
 
 [node name="AirSection2" type="Area2D" parent="."]
-position = Vector2( 132.343, -167.31 )
+position = Vector2( 132.343, -168.212 )
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection2"]
@@ -154,7 +154,7 @@ position = Vector2( -261.653, 80.3228 )
 shape = SubResource( 8 )
 
 [node name="AirSection3" type="Area2D" parent="."]
-position = Vector2( 2057.26, -62.9839 )
+position = Vector2( 2057.26, -66.0791 )
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection3"]
@@ -162,7 +162,7 @@ position = Vector2( -138.912, -158.302 )
 shape = SubResource( 9 )
 
 [node name="AirSection4" type="Area2D" parent="."]
-position = Vector2( 2094.12, -7.67957 )
+position = Vector2( 2094.12, -10.7747 )
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection4"]

@@ -67,15 +67,15 @@ func _on_physics_process(delta):
 #			grabbing_object.call_deferred("set_released")
 		elif found_floor:
 			print("Try interact")
-			var col
-			if siding_left:
-				col = ray_left.get_collider()
-			else:
-				col = ray_right.get_collider()
-			
-			if col:
+#			var col
+#			if siding_left:
+#				col = ray_left.get_collider()
+#			else:
+#				col = ray_right.get_collider()
+#
+			if last_hover:
 				print("Found body")
-				set_box_grabbed(col, false)
+				set_box_grabbed(last_hover, false)
 #				col.call_deferred("set_grabbed")
 				
 
