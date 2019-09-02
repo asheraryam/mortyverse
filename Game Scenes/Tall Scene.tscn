@@ -1,84 +1,20 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/CanvasLayerNormal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=4]
 [ext_resource path="res://Player/Player Tall.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/morty/tall run 2/run tall A 1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/tall run 2/run tall A 2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/morty/tall run 2/run tall A 3.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/morty/tall run 2/run tall A 4.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 3.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 4.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 5.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 6.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 7.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 8.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 9.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 10.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 11.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/morty/idle tall 2/idle tall B 12.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 2.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 3.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 4.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 5.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 6.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 7.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 8.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 9.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 10.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 11.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/morty/idle tall 1/idle tall A 12.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/morty/tall run 1/run tall 1.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/morty/tall run 1/run tall 2.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/morty/tall run 1/run tall 3.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/morty/tall run 1/run tall 4.png" type="Texture" id=37]
+[ext_resource path="res://Player/Tall spriteframes.tres" type="SpriteFrames" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "jump1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "jump2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "run2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "default2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "default1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
-"loop": true,
-"name": "run1",
-"speed": 5.0
-} ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 26.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 8.0
 
 [node name="Tall Scene" type="Node2D" groups=[
@@ -142,7 +78,7 @@ cast_to = Vector2( 16, 0 )
 collision_mask = 4
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Tall"]
-frames = SubResource( 3 )
+frames = ExtResource( 6 )
 animation = "default1"
 offset = Vector2( 0, -12 )
 
@@ -155,9 +91,9 @@ current = true
 
 [node name="Tall1" type="CollisionShape2D" parent="Player Tall"]
 position = Vector2( 0.315552, -21.3199 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Tall2" type="CollisionShape2D" parent="Player Tall"]
 position = Vector2( 0, -39.2519 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 disabled = true

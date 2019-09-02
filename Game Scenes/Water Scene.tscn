@@ -1,36 +1,16 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tilesets/water tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=4]
 [ext_resource path="res://Player/Water Player.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/morty/swim/swim 1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/morty/swim/swim 2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/morty/swim/swim 3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/bubble.png" type="Texture" id=9]
-[ext_resource path="res://Parallel/AirSection.gd" type="Script" id=10]
+[ext_resource path="res://Player/Water spriteframes.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Sprites/bubble.png" type="Texture" id=7]
+[ext_resource path="res://Parallel/AirSection.gd" type="Script" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "jump",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-} ]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 8.0
@@ -111,7 +91,7 @@ can_grab_box = false
 allow_many_jumps = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Water"]
-frames = SubResource( 2 )
+frames = ExtResource( 6 )
 animation = "run"
 offset = Vector2( 0, -1 )
 
@@ -135,11 +115,11 @@ lifetime = 3.0
 explosiveness = 0.5
 local_coords = false
 process_material = SubResource( 6 )
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="AirSection" type="Area2D" parent="."]
 position = Vector2( 1401.33, -171.822 )
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection"]
 position = Vector2( -66.5049, -77.9478 )
@@ -147,7 +127,7 @@ shape = SubResource( 7 )
 
 [node name="AirSection2" type="Area2D" parent="."]
 position = Vector2( 132.343, -168.212 )
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection2"]
 position = Vector2( -261.653, 80.3228 )
@@ -155,7 +135,7 @@ shape = SubResource( 8 )
 
 [node name="AirSection3" type="Area2D" parent="."]
 position = Vector2( 2057.26, -66.0791 )
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection3"]
 position = Vector2( -138.912, -158.302 )
@@ -163,7 +143,7 @@ shape = SubResource( 9 )
 
 [node name="AirSection4" type="Area2D" parent="."]
 position = Vector2( 2094.12, -10.7747 )
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection4"]
 position = Vector2( 172.688, -165.785 )

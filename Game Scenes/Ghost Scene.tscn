@@ -1,42 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/environment/city background bw.png" type="Texture" id=2]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=4]
 [ext_resource path="res://Player/Ghost Player.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/morty/ghost/1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/morty/ghost/2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/morty/ghost/3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/morty/ghost/4.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/morty/ghost/ghost phase.png" type="Texture" id=10]
-[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=11]
+[ext_resource path="res://Player/Ghost spriteframes.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "phase",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-} ]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 8.0
@@ -79,7 +52,6 @@ terrain_tiles = ExtResource( 4 )
 [node name="Player Ghost" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( -18.9466, 95.7199 )
 collision_layer = 2
 collision_mask = 21
@@ -94,7 +66,7 @@ can_grab_box = false
 [node name="Sprite" type="AnimatedSprite" parent="Player Ghost"]
 modulate = Color( 1, 1, 1, 0.998502 )
 position = Vector2( 0, 4.60562 )
-frames = SubResource( 2 )
+frames = ExtResource( 6 )
 animation = "phase"
 offset = Vector2( 0, -6 )
 
@@ -114,7 +86,7 @@ shape = SubResource( 3 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player Ghost"]
-anims/phase = ExtResource( 11 )
+anims/phase = ExtResource( 7 )
 
 [node name="StuckInside" type="Area2D" parent="Player Ghost"]
 collision_layer = 2
