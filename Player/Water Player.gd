@@ -14,7 +14,9 @@ func play_anim(anim_name):
 
 
 func entered_airsection():
+	$Bubbles.emitting = false
 	inside_airsection = true
 
 func exited_airsection():
+	$Bubbles.emitting = true
 	inside_airsection = false

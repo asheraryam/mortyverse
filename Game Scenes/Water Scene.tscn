@@ -21,15 +21,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "jump",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "jump",
+"speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -97,7 +97,6 @@ terrain_tiles = ExtResource( 4 )
 [node name="Player Water" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( 142.825, 73.6649 )
 collision_layer = 2
 collision_mask = 21
@@ -127,7 +126,7 @@ collide_with_areas = true
 [node name="Camera2D" type="Camera2D" parent="Player Water"]
 current = true
 
-[node name="Particles2D" type="Particles2D" parent="Player Water"]
+[node name="Bubbles" type="Particles2D" parent="Player Water"]
 position = Vector2( 0, -6.89697 )
 rotation = -1.5708
 amount = 3
