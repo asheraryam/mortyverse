@@ -54,9 +54,12 @@ func switch_world_to(_target_world):
 	target_world = _target_world
 	var duration = 0.5
 	if game.current_world:
+		game.bgm.fade_out(str(game.current_world.INDEX))
 		pause_worlds()
 	else:
 		duration = 0.001
+	game.bgm.fade_in(str(_target_world.INDEX))
+		
 	var current_degrees = $Center.rotation_degrees
 #	var target_degrees = current_degrees
 	var target_degrees = world_rotations[_target_world.INDEX]
@@ -82,6 +85,7 @@ func switch_world_to(_target_world):
 	var players = get_tree().get_nodes_in_group("player")
 	for p in players:
 		p.update_facing()
+
 	$Center/CenterTween.interpolate_property($Center,"rotation_degrees", 
 	current_degrees, 
 	target_degrees,0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)

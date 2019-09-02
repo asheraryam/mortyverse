@@ -2,6 +2,8 @@ extends Node
 
 var main_node
 
+var bgm
+
 var current_world
 
 
