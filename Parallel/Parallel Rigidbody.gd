@@ -363,7 +363,9 @@ func _integrate_forces(s):
 			floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
 			lv.x += floor_h_velocity
 		
-		if (allow_many_jumps and (new_jump or jumping)) or (not allow_many_jumps and abs(lv.y)>10):
+		if grabbing_object:
+			dimensional_play_anim("grab")
+		elif (allow_many_jumps and (new_jump or jumping)) or (not allow_many_jumps and abs(lv.y)>10):
 			dimensional_play_anim("jump")
 		else:
 			if abs(lv.x) > 0.5:
@@ -417,6 +419,9 @@ func dimensional_play_anim(anim_name):
 		p.play_anim(anim_name)
 
 func play_anim(anim_name):
+	if not $Sprite.frames.has_animation(anim_name):
+		print("Player does not have animation!")
+		return
 	$Sprite.play(anim_name)
 
 func collect_artifact(thing : PhysicsBody2D):

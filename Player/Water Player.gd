@@ -8,10 +8,6 @@ func _ready():
 func set_inactive():
 	set_physics_process(false)
 
-func play_anim(anim_name):
-#	$Sprite.frame = 0
-	$Sprite.play(anim_name)
-
 
 func entered_airsection():
 	$Bubbles.emitting = false

@@ -55,8 +55,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
 position = Vector2( 0, 0.846073 )
 frames = ExtResource( 7 )
-animation = "grab"
-frame = 1
+frame = 6
 playing = true
 offset = Vector2( 0, -6 )
 
