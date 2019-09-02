@@ -52,25 +52,33 @@ func _integrate_forces(s):
 		var xform = s.get_transform()
 		xform.origin = parallel_target.global_position
 		s.set_transform(xform)
-	elif _check_overlap:
-		_check_overlap = false
-#		var bodies = $OverlapArea.get_overlapping_bodies()
-#		if bodies.size() > 0:
-		var count = s.get_contact_count()
-		if count> 0:
-			for x in range(s.get_contact_count()):
-				var thing = s.get_contact_collider_object(x)
-				if thing != grabbing_player:
-					print("Box overlap")
-					s.set_linear_velocity(Vector2())
-					var xform = s.get_transform()
-					xform.origin = pre_grab_pos
-					s.set_transform(xform)
-					break
+	else:
+		
+		if _grabbed:
+			s.set_linear_velocity(grabbing_player.linear_velocity)
+		
+		
+		if _check_overlap:
+			_check_overlap = false
+	#		var bodies = $OverlapArea.get_overlapping_bodies()
+	#		if bodies.size() > 0:
+			var count = s.get_contact_count()
+			if count> 0:
+				for x in range(s.get_contact_count()):
+					var thing = s.get_contact_collider_object(x)
+					if thing != grabbing_player:
+						print("Box overlap")
+						s.set_linear_velocity(Vector2())
+						var xform = s.get_transform()
+						xform.origin = pre_grab_pos
+						s.set_transform(xform)
+						break
 
 var pre_grab_pos
 var grabbing_player
+var _grabbed = false
 func set_grabbed(player):
+	_grabbed = true
 	pre_grab_pos = global_position
 	grabbing_player = player
 #	for b in bros:
@@ -78,7 +86,7 @@ func set_grabbed(player):
 
 var _check_overlap = false
 func set_released(player):
-	pass
+	_grabbed = false
 #	_check_overlap = true
 	
 #	for b in bros:

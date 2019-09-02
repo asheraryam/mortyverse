@@ -94,12 +94,12 @@ func set_box_grabbed(col, parallel= false):
 	add_collision_exception_with(col)
 	grabbing_object = col
 	var before_trans = col.global_position
-	col.mode =RigidBody2D.MODE_KINEMATIC
-	col.get_parent().remove_child(col)
-	add_child(col)
-	col.global_position = before_trans
+#	col.mode =RigidBody2D.MODE_KINEMATIC
+#	col.get_parent().remove_child(col)
+#	add_child(col)
+#	col.global_position = before_trans
+	col.set_grabbed(self)
 	if not parallel:
-		col.set_grabbed(self)
 		col.global_position.y -= 12
 
 func box_released(parallel = false):
@@ -108,11 +108,12 @@ func box_released(parallel = false):
 		box_stuck = false
 		var before_trans = grabbing_object.global_position
 		if not parallel:
-			remove_child(grabbing_object)
-			get_parent().get_node("SharedLevel").get_node("Boxes Parent").add_child(grabbing_object)
-			grabbing_object.global_position = before_trans
-			grabbing_object.set_released(self)
-		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
+#			remove_child(grabbing_object)
+#			get_parent().get_node("SharedLevel").get_node("Boxes Parent").add_child(grabbing_object)
+#			grabbing_object.global_position = before_trans
+			grabbing_object.global_position.y += 12
+		grabbing_object.set_released(self)
+#		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
 		remove_collision_exception_with(grabbing_object)
 		call_deferred("clear_grabbed")
 	
