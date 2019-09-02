@@ -4,10 +4,10 @@
 [ext_resource path="res://Parallel/Artifact.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/pizza.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 8.5
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 8.5
 
 [node name="Artifact" type="RigidBody2D" groups=[
@@ -28,7 +28,7 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
@@ -40,7 +40,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 position = Vector2( 0, -0.5 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 [connection signal="body_entered" from="CollectArea" to="." method="_on_CollectArea_body_entered"]

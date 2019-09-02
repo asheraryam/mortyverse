@@ -117,7 +117,7 @@ func set_box_grabbed(col, parallel= false):
 #	col.global_position = before_trans
 	col.set_grabbed(self)
 	if not parallel:
-		col.global_position.y -= 12
+		col.get_node("Sprite").scale.y = 0.8
 
 func box_released(parallel = false):
 	if grabbing_object:
@@ -128,7 +128,7 @@ func box_released(parallel = false):
 #			remove_child(grabbing_object)
 #			get_parent().get_node("SharedLevel").get_node("Boxes Parent").add_child(grabbing_object)
 #			grabbing_object.global_position = before_trans
-			grabbing_object.global_position.y += 12
+			grabbing_object.get_node("Sprite").scale.y = 1
 		grabbing_object.set_released(self)
 #		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
 #		remove_collision_exception_with(grabbing_object)
@@ -155,6 +155,8 @@ func update_facing():
 
 func set_target(_target):
 	if parallel_target and not _target:
+		jumping = parallel_target.jumping
+		airborne_time = parallel_target.airborne_time
 		if parallel_target.grabbing_object:
 			if can_grab_box:
 				grab_parallel_box(parallel_target.grabbing_object)
