@@ -69,7 +69,7 @@ texture = ExtResource( 3 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( -570.16, 132.078 )
+position = Vector2( -583.664, 135.936 )
 collision_layer = 2
 collision_mask = 21
 mode = 2
@@ -81,7 +81,7 @@ script = ExtResource( 5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
 frames = SubResource( 2 )
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( 0, -6 )
 

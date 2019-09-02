@@ -59,6 +59,7 @@ func _physics_process(delta):
 	_on_physics_process(delta)
 	
 func _on_physics_process(delta):
+	check_hover()
 	if Input.is_action_just_pressed("interact") and can_grab_box:
 		print("Grabbing with " + name)
 		if grabbing_object:
@@ -77,6 +78,22 @@ func _on_physics_process(delta):
 				set_box_grabbed(col, false)
 #				col.call_deferred("set_grabbed")
 				
+
+var last_hover
+func check_hover():
+	var col
+	if siding_left:
+		col = ray_left.get_collider()
+	else:
+		col = ray_right.get_collider()
+		
+	if last_hover and (col != last_hover or not can_grab_box):
+		last_hover.hover_off()
+	
+	last_hover = col
+	if col and can_grab_box:
+		col.hover_on()
+	
 func set_inactive():
 	set_physics_process(false)
 				
@@ -90,8 +107,8 @@ func parallel_release():
 	box_released(true)
 	
 func set_box_grabbed(col, parallel= false):
-	col.add_collision_exception_with(self)
-	add_collision_exception_with(col)
+#	col.add_collision_exception_with(self)
+#	add_collision_exception_with(col)
 	grabbing_object = col
 	var before_trans = col.global_position
 #	col.mode =RigidBody2D.MODE_KINEMATIC
@@ -104,7 +121,7 @@ func set_box_grabbed(col, parallel= false):
 
 func box_released(parallel = false):
 	if grabbing_object:
-		grabbing_object.remove_collision_exception_with(self)
+#		grabbing_object.remove_collision_exception_with(self)
 		box_stuck = false
 		var before_trans = grabbing_object.global_position
 		if not parallel:
@@ -114,7 +131,7 @@ func box_released(parallel = false):
 			grabbing_object.global_position.y += 12
 		grabbing_object.set_released(self)
 #		grabbing_object.mode =RigidBody2D.MODE_CHARACTER
-		remove_collision_exception_with(grabbing_object)
+#		remove_collision_exception_with(grabbing_object)
 		call_deferred("clear_grabbed")
 	
 func is_on_floor():

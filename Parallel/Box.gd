@@ -79,6 +79,8 @@ var grabbing_player
 var _grabbed = false
 func set_grabbed(player):
 	_grabbed = true
+	hover_off()
+	gravity_scale = 0
 	pre_grab_pos = global_position
 	grabbing_player = player
 #	for b in bros:
@@ -86,12 +88,21 @@ func set_grabbed(player):
 
 var _check_overlap = false
 func set_released(player):
+	gravity_scale= 1
 	_grabbed = false
 #	_check_overlap = true
 	
 #	for b in bros:
 #		print("boxes owner " + str(b.original_owner.name))
 #		b.original_owner.player_node.parallel_release()
+
+func hover_on():
+	if _grabbed:
+		return
+	$AnimationPlayer.play("InRange")
+
+func hover_off():
+	$AnimationPlayer.play("Idle")
 	
 
 func self_destruct():
