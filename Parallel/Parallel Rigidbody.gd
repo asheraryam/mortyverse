@@ -156,7 +156,8 @@ func update_facing():
 func set_target(_target):
 	if parallel_target and not _target:
 		if parallel_target.grabbing_object:
-			grab_parallel_box(parallel_target.grabbing_object)
+			if can_grab_box:
+				grab_parallel_box(parallel_target.grabbing_object)
 			parallel_target.box_released()
 		linear_velocity = parallel_target.linear_velocity
 	parallel_target = _target
