@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/water 2 - piano1_sutekinajikan.ogg-94af7655f7cfa9e9369f03fad96e0868.oggstr"
+
+[deps]
+
+source_file="res://Audio/BGM/water 2 - piano1_sutekinajikan.ogg"
+dest_files=[ "res://.import/water 2 - piano1_sutekinajikan.ogg-94af7655f7cfa9e9369f03fad96e0868.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

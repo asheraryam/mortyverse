@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tall 1 - unique_osyaberi.ogg-8ef1244caf48f57b979e754d6743901f.oggstr"
+
+[deps]
+
+source_file="res://Audio/BGM/tall 1 - unique_osyaberi.ogg"
+dest_files=[ "res://.import/tall 1 - unique_osyaberi.ogg-8ef1244caf48f57b979e754d6743901f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

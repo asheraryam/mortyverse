@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tall 2 - akarui_minnaasobo.ogg-d9ad25b833635bf5c06531adf3711a99.oggstr"
+
+[deps]
+
+source_file="res://Audio/BGM/tall 2 - akarui_minnaasobo.ogg"
+dest_files=[ "res://.import/tall 2 - akarui_minnaasobo.ogg-d9ad25b833635bf5c06531adf3711a99.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

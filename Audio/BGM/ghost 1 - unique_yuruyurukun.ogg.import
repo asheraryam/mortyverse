@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ghost 1 - unique_yuruyurukun.ogg-46b62e9f2358ce2e401141f6c38806c8.oggstr"
+
+[deps]
+
+source_file="res://Audio/BGM/ghost 1 - unique_yuruyurukun.ogg"
+dest_files=[ "res://.import/ghost 1 - unique_yuruyurukun.ogg-46b62e9f2358ce2e401141f6c38806c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
