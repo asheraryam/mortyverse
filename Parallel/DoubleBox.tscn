@@ -1,25 +1,21 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Parallel/Box.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/doublecrate.png" type="Texture" id=2]
+[ext_resource path="res://Parallel/Box physics material.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Parallel/Box.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/doublecrate.png" type="Texture" id=3]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 1.5
-rough = true
-absorbent = true
-
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
 height = 13.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
 height = 37.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Idle"
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "InRange"
 
 [node name="DoubleBox" type="RigidBody2D" groups=[
@@ -29,15 +25,15 @@ collision_layer = 4
 collision_mask = 23
 mode = 2
 mass = 2.04082
-physics_material_override = SubResource( 1 )
+physics_material_override = ExtResource( 1 )
 continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
@@ -45,22 +41,22 @@ cast_to = Vector2( 0, 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -18.5, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 18.5, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6.5 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -6.5 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 4 )
-anims/InRange = SubResource( 5 )
+anims/Idle = SubResource( 3 )
+anims/InRange = SubResource( 4 )

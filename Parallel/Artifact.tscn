@@ -1,33 +1,30 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Parallel/Artifact.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/pizza.png" type="Texture" id=2]
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-bounce = 0.3
+[ext_resource path="res://Parallel/Artifact physics material.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Parallel/Artifact.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/pizza.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 9.0
+radius = 8.5
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 9.0
+radius = 8.5
 
 [node name="Artifact" type="RigidBody2D" groups=[
 "box",
 ]]
 collision_layer = 16
 collision_mask = 5
-mass = 0.102041
-physics_material_override = SubResource( 1 )
+mode = 2
+physics_material_override = ExtResource( 1 )
 continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )

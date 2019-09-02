@@ -6,12 +6,14 @@ export(int) var INDEX = 0
 export(NodePath) var player 
 
 
-var player_node
+var player_node : RigidBody2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_node = get_node(player)
+	if has_node("starting_pos"):
+		player_node.global_position = $starting_pos.global_position
 
 func set_active():
 	print("Set world active " + str(INDEX))
