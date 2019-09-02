@@ -91,7 +91,7 @@ func check_hover():
 		last_hover.hover_off()
 	
 	last_hover = col
-	if col and can_grab_box and found_floor:
+	if not grabbing_object and col and can_grab_box and found_floor:
 		col.hover_on()
 	
 func set_inactive():
