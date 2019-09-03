@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/concrete.png-94ce94818a70cb56d03ba077fc540204.stex"
+path="res://.import/water 4.png-94b58fd068aed4f91897e31561e47e94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/concrete.png"
-dest_files=[ "res://.import/concrete.png-94ce94818a70cb56d03ba077fc540204.stex" ]
+source_file="res://Tilesets/animated water/water 4.png"
+dest_files=[ "res://.import/water 4.png-94b58fd068aed4f91897e31561e47e94.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

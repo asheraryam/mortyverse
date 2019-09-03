@@ -1,6 +1,8 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://Sprites/Tilesets/bushes.png" type="Texture" id=1]
+[ext_resource path="res://Tilesets/images/bushes.png" type="Texture" id=1]
+
+
 
 [resource]
 0/name = "bushes.png 0"

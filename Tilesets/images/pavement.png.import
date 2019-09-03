@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_tileset test.png-e1d954abc57fc6b565e139159fd2273b.stex"
+path="res://.import/pavement.png-0b05f8021e8087244cbd4ada602b3fa2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/tileset_tileset test.png"
-dest_files=[ "res://.import/tileset_tileset test.png-e1d954abc57fc6b565e139159fd2273b.stex" ]
+source_file="res://Tilesets/images/pavement.png"
+dest_files=[ "res://.import/pavement.png-0b05f8021e8087244cbd4ada602b3fa2.stex" ]
 
 [params]
 

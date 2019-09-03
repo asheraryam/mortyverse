@@ -1,11 +1,11 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Levels/SharedLevel.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Tilesets/terrain normal.tres" type="TileSet" id=2]
-[ext_resource path="res://Sprites/Tilesets/bushes.tres" type="TileSet" id=3]
-[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=4]
-[ext_resource path="res://Sprites/Tilesets/concrete.tres" type="TileSet" id=5]
-[ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=6]
+[ext_resource path="res://Tilesets/terrain normal.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/bushes.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/chainfence tiles.tres" type="TileSet" id=4]
+[ext_resource path="res://Tilesets/concrete.tres" type="TileSet" id=5]
+[ext_resource path="res://Tilesets/grass.tres" type="TileSet" id=6]
 [ext_resource path="res://Sprites/Background/Brick.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Parallel/Box.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Parallel/DoubleBox.tscn" type="PackedScene" id=9]
@@ -26,7 +26,6 @@
 friction = 0.0
 
 [node name="SharedLevel" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 terrain_tiles = ExtResource( 2 )
 bushes_tiles = ExtResource( 3 )

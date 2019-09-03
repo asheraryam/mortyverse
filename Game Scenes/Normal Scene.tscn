@@ -7,7 +7,8 @@
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=6]
 [ext_resource path="res://Player/Normal spriteframes.tres" type="SpriteFrames" id=7]
-[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=8]
+[ext_resource path="res://Tilesets/chainfence tiles.tres" type="TileSet" id=8]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0

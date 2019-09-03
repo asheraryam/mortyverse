@@ -1,15 +1,16 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Tilesets/water tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Sprites/Tilesets/kelp.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/water tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/kelp.tres" type="TileSet" id=3]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Tilesets/terrain water.tres" type="TileSet" id=5]
+[ext_resource path="res://Tilesets/terrain water.tres" type="TileSet" id=5]
 [ext_resource path="res://Player/Water Player.gd" type="Script" id=6]
 [ext_resource path="res://Player/Water spriteframes.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Sprites/bubble.png" type="Texture" id=8]
 [ext_resource path="res://Levels/AirSection.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Parallel/AirSection.gd" type="Script" id=10]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0

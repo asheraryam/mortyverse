@@ -3,9 +3,10 @@
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/CanvasLayerNormal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Tilesets/grass.tres" type="TileSet" id=4]
+[ext_resource path="res://Tilesets/grass.tres" type="TileSet" id=4]
 [ext_resource path="res://Player/Player Tall.gd" type="Script" id=5]
 [ext_resource path="res://Player/Tall spriteframes.tres" type="SpriteFrames" id=6]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
