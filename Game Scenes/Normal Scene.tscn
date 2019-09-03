@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game Scenes/World Scene.gd" type="Script" id=1]
 [ext_resource path="res://Levels/starting_pos.tscn" type="PackedScene" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Levels/SharedLevel2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Normal Player.gd" type="Script" id=6]
 [ext_resource path="res://Player/Normal spriteframes.tres" type="SpriteFrames" id=7]
-[ext_resource path="res://Sprites/Tilesets/tileset template.tres" type="TileSet" id=8]
-[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=9]
+[ext_resource path="res://Sprites/Tilesets/chainfence tiles.tres" type="TileSet" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -55,21 +54,15 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
 position = Vector2( 0, 0.846073 )
 frames = ExtResource( 7 )
-frame = 6
+frame = 1
 playing = true
 offset = Vector2( 0, -6 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Normal"]
 current = true
 
-[node name="TestTileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 8 )
-cell_size = Vector2( 24, 24 )
-cell_quadrant_size = 1
-format = 1
-
 [node name="ChainFence" type="TileMap" parent="."]
-tile_set = ExtResource( 9 )
+tile_set = ExtResource( 8 )
 cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1

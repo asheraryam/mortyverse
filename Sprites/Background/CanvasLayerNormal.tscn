@@ -14,11 +14,20 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_limit_end = Vector2( 350, 240 )
+scroll_limit_end = Vector2( 360, 240 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
 
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_top = 160.0
+margin_right = 360.0
+margin_bottom = 240.0
+color = Color( 0.568627, 0.733333, 0.890196, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="city background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 180, 180 )
+position = Vector2( 180, 132 )
 texture = ExtResource( 1 )

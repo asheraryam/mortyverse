@@ -36,13 +36,13 @@ orbit_velocity_random = 0.0
 scale_random = 1.0
 scale_curve = SubResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 600, 40.48 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 180, 200 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 400, 200 )
 
 [node name="Water Scene" type="Node2D" groups=[
@@ -53,6 +53,7 @@ INDEX = 1
 player = NodePath("Player Water")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -100,7 +101,6 @@ allow_many_jumps = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Water"]
 frames = ExtResource( 7 )
-frame = 3
 playing = true
 offset = Vector2( 0, -1 )
 
@@ -126,37 +126,42 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 8 )
 
-[node name="AirSection" parent="." instance=ExtResource( 9 )]
+[node name="AirSections" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="AirSection2" type="Area2D" parent="."]
+[node name="AirSection" parent="AirSections" instance=ExtResource( 9 )]
+
+[node name="AirSection2" type="Area2D" parent="AirSections"]
 editor/display_folded = true
 position = Vector2( 132.343, -168.212 )
 script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSections/AirSection2"]
 position = Vector2( -261.653, 80.3228 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
-[node name="AirSection3" type="Area2D" parent="."]
+[node name="AirSection3" type="Area2D" parent="AirSections"]
 editor/display_folded = true
 position = Vector2( 2057.26, -66.0791 )
 script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSections/AirSection3"]
 position = Vector2( -138.912, -158.302 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
-[node name="AirSection4" type="Area2D" parent="."]
+[node name="AirSection4" type="Area2D" parent="AirSections"]
 editor/display_folded = true
 position = Vector2( 2094.12, -10.7747 )
 script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSection4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirSections/AirSection4"]
 position = Vector2( 172.688, -165.785 )
-shape = SubResource( 9 )
-[connection signal="body_entered" from="AirSection2" to="AirSection2" method="_on_AirSection_body_entered"]
-[connection signal="body_exited" from="AirSection2" to="AirSection2" method="_on_AirSection_body_exited"]
-[connection signal="body_entered" from="AirSection3" to="AirSection3" method="_on_AirSection_body_entered"]
-[connection signal="body_exited" from="AirSection3" to="AirSection3" method="_on_AirSection_body_exited"]
-[connection signal="body_entered" from="AirSection4" to="AirSection4" method="_on_AirSection_body_entered"]
-[connection signal="body_exited" from="AirSection4" to="AirSection4" method="_on_AirSection_body_exited"]
+shape = SubResource( 8 )
+[connection signal="body_entered" from="AirSections/AirSection2" to="AirSections/AirSection2" method="_on_AirSection_body_entered"]
+[connection signal="body_exited" from="AirSections/AirSection2" to="AirSections/AirSection2" method="_on_AirSection_body_exited"]
+[connection signal="body_entered" from="AirSections/AirSection3" to="AirSections/AirSection3" method="_on_AirSection_body_entered"]
+[connection signal="body_exited" from="AirSections/AirSection3" to="AirSections/AirSection3" method="_on_AirSection_body_exited"]
+[connection signal="body_entered" from="AirSections/AirSection4" to="AirSections/AirSection4" method="_on_AirSection_body_entered"]
+[connection signal="body_exited" from="AirSections/AirSection4" to="AirSections/AirSection4" method="_on_AirSection_body_exited"]

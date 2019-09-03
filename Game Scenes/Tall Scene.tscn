@@ -26,24 +26,13 @@ player = NodePath("Player Tall")
 
 [node name="CanvasLayer2" parent="." instance=ExtResource( 2 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-margin_right = 360.0
-margin_bottom = 240.0
-color = Color( 0.764706, 0.929412, 0.545098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SharedLevel" parent="." instance=ExtResource( 3 )]
 terrain_tiles = ExtResource( 4 )
 
 [node name="Player Tall" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
 position = Vector2( 181.235, 117.088 )
 collision_layer = 2
 collision_mask = 21
