@@ -46,9 +46,9 @@ func phase_timout():
 
 
 func play_anim(anim_name):
-	if not $Sprite.frames.has_animation(anim_name):
-		print("Player does not have animation!")
-		return
+#	if not $Sprite.frames.has_animation(anim_name):
+#		print("Player does not have animation!")
+#		return
 	if phase_timer.is_stopped():
 		$Sprite.play(anim_name)
 	else:

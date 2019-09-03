@@ -420,7 +420,7 @@ func dimensional_play_anim(anim_name):
 
 func play_anim(anim_name):
 	if not $Sprite.frames.has_animation(anim_name):
-		print("Player does not have animation!")
+#		print("Player does not have animation!")
 		return
 	$Sprite.play(anim_name)
 
