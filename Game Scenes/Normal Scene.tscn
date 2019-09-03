@@ -10,9 +10,11 @@
 [ext_resource path="res://Tilesets/chainfence tiles.tres" type="TileSet" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
+
 friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
+
 radius = 8.0
 height = 30.0
 
@@ -37,7 +39,6 @@ texture = ExtResource( 4 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( 1814.34, -47.6836 )
 collision_layer = 2
 collision_mask = 21
@@ -66,3 +67,4 @@ tile_set = ExtResource( 8 )
 cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 1
 format = 1
+
