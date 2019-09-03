@@ -8,7 +8,6 @@
 [ext_resource path="res://Player/Ghost spriteframes.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://Animations/ghost_phase.tres" type="Animation" id=7]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
@@ -30,6 +29,7 @@ player = NodePath("Player Ghost")
 layer = -1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+editor/display_folded = true
 scroll_limit_end = Vector2( 360, 240 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]

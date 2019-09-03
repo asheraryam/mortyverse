@@ -7,7 +7,6 @@
 [ext_resource path="res://Player/Player Tall.gd" type="Script" id=5]
 [ext_resource path="res://Player/Tall spriteframes.tres" type="SpriteFrames" id=6]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 

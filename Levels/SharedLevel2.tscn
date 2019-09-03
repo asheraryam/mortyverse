@@ -138,6 +138,7 @@ position = Vector2( 2245.16, 37.3052 )
 BOX_INDEX = 14
 
 [node name="References" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }

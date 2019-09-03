@@ -11,7 +11,6 @@
 [ext_resource path="res://Levels/AirSection.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Parallel/AirSection.gd" type="Script" id=10]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
@@ -102,7 +101,7 @@ allow_many_jumps = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Player Water"]
 frames = ExtResource( 7 )
-playing = true
+frame = 6
 offset = Vector2( 0, -1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Water"]
@@ -128,6 +127,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 8 )
 
 [node name="AirSections" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }

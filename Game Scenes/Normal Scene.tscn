@@ -9,7 +9,6 @@
 [ext_resource path="res://Player/Normal spriteframes.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Tilesets/chainfence tiles.tres" type="TileSet" id=8]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
@@ -38,6 +37,7 @@ texture = ExtResource( 4 )
 [node name="Player Normal" type="RigidBody2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
 position = Vector2( 1814.34, -47.6836 )
 collision_layer = 2
 collision_mask = 21
@@ -55,8 +55,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Player Normal"]
 position = Vector2( 0, 0.846073 )
 frames = ExtResource( 7 )
-frame = 10
-playing = true
+frame = 5
 offset = Vector2( 0, -6 )
 
 [node name="Camera2D" type="Camera2D" parent="Player Normal"]
