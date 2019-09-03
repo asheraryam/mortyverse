@@ -12,15 +12,15 @@
 [ext_resource path="res://Sprites/morty/idle/10.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/morty/idle/11.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/morty/idle/12.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/morty/run/run1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/morty/run/run2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/morty/run/run3.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/morty/run/run4.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/morty/jump/jump.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/morty/grab/grab 1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/morty/grab/grab 2.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/morty/grab/grab 3.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/morty/grab/grab 4.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/morty/grab/grab 1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/morty/grab/grab 2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/morty/grab/grab 3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/morty/grab/grab 4.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/morty/run/run1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/morty/run/run2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/morty/run/run3.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/morty/run/run4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/morty/jump/jump.png" type="Texture" id=21]
 
 [resource]
 animations = [ {
@@ -31,16 +31,16 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
+"name": "grab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "grab",
 "speed": 5.0
 } ]
