@@ -4,9 +4,13 @@ export(int) var BOX_INDEX = 0
 
 var parallel_target : RigidBody2D
 
+export(NodePath) var antibox_active_when_grabbed : NodePath
+
 var original_owner
 func _ready():
 	original_owner = owner
+	if antibox_active_when_grabbed:
+		get_node(antibox_active_when_grabbed).get_node("CollisionShape2D").disabled = true
 	get_bros()
 
 var bros = []
@@ -83,6 +87,8 @@ func set_grabbed(player):
 	gravity_scale = 0
 	pre_grab_pos = global_position
 	grabbing_player = player
+	if antibox_active_when_grabbed:
+		get_node(antibox_active_when_grabbed).get_node("CollisionShape2D").disabled = false
 #	for b in bros:
 #		b.original_owner.player_node.parallel_grab(b)
 
@@ -90,6 +96,8 @@ var _check_overlap = false
 func set_released(player):
 	gravity_scale= 1
 	_grabbed = false
+	if antibox_active_when_grabbed:
+		get_node(antibox_active_when_grabbed).get_node("CollisionShape2D").disabled = true
 #	_check_overlap = true
 	
 #	for b in bros:

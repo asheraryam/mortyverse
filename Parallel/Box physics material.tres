@@ -2,3 +2,4 @@
 
 [resource]
 friction = 2.0
+absorbent = true
