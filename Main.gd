@@ -48,6 +48,8 @@ func go_to_prev_world():
 	switch_world_to(get_world_by_id(target_index), false)
 
 var target_world
+var before_basis
+var after_basis
 func switch_world_to(_target_world, forward):
 	if $Center/CenterTween.is_active():
 		print("Tween active, exiting")
@@ -62,32 +64,20 @@ func switch_world_to(_target_world, forward):
 	game.bgm.fade_in(str(_target_world.INDEX))
 		
 	var current_degrees = $Center.rotation.x
-#	var target_degrees = current_degrees
 	var target_degrees = world_rotations[_target_world.INDEX]
-#	target_degrees.x = deg2rad(world_rotations[_target_world.INDEX].x)
 	if game.current_world:
 		if forward:
-			target_degrees.x = deg2rad(5.4545)
+			target_degrees.x = deg2rad(90)
 		else:
-			target_degrees.x = - deg2rad(5.4545)
+			target_degrees.x = - deg2rad(90)
 	else:
 		target_degrees.x = 0
 		
 	var target_angle = target_degrees.x
-		
-#	var target_degrees = current_degrees 
-#	if game.current_world.INDEX < _target_world.INDEX or (
-#	game.current_world.INDEX == world_rotations.size()-1 and _target_world.INDEX== 0):
-#		target_degrees.x += 90
-#	else:
-#		target_degrees.x -= 90
+	
+	before_basis = $Center.global_transform.basis
+	after_basis = $Center.global_transform.basis.rotated(Vector3(1,0,0), target_angle)
 
-#	if abs(target_degrees.x - current_degrees.x) > 180:
-#		target_degrees.x -= 360 #* sign(target_degrees.x)
-	
-	
-#	if game.current_world.INDEX == 0 and _target_world.INDEX == world_rotations.size() -1:
-#		degrees = Vector3(360,0,0)
 	var players = get_tree().get_nodes_in_group("player")
 	for p in players:
 		p.update_facing()
@@ -96,23 +86,13 @@ func switch_world_to(_target_world, forward):
 
 	$Center/CenterTween.interpolate_method(self,"rotate_world_center_by", 
 	0, 
-	target_angle,0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
+	1,0.5,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
 	$Center/CenterTween.start()
 
-var sum_of_rotations = 0
 func rotate_world_center_by(radian_angle):
-	sum_of_rotations += radian_angle
-#	if rad2deg(sum_of_rotations) <=90:
-	$Center.rotate_x(radian_angle)
-#	else:
-#		sum_of_rotations -= radian_angle
+	$Center.global_transform.basis = before_basis.slerp(after_basis, radian_angle)
 
 func _on_Center_tween_completed(object, key):
-	var needed = (deg2rad(90) * sign(sum_of_rotations)) - sum_of_rotations
-	print("Angle difference was " + str(needed))
-	$Center.rotate_x(needed)
-	print("Sum of rotations is : " + str(rad2deg(sum_of_rotations + needed)))
-	sum_of_rotations = 0
 	target_world.set_active()
 
 func pause_worlds():
