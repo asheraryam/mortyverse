@@ -1,23 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/environment/city background.png" type="Texture" id=1]
 
+[sub_resource type="CanvasItemMaterial" id=1]
+render_priority = -1
+
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 360.0
-margin_bottom = 240.0
-color = Color( 0.631373, 0.937255, 0.980392, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_limit_end = Vector2( 360, 240 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource( 1 )
+margin_right = 360.0
+margin_bottom = 240.0
+color = Color( 0.631373, 0.937255, 0.980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
 margin_top = 160.0
