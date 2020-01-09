@@ -64,7 +64,6 @@ albedo_texture = SubResource( 9 )
 
 [sub_resource type="SpatialMaterial" id=11]
 flags_unshaded = true
-flags_albedo_tex_force_srgb = true
 flags_do_not_receive_shadows = true
 params_diffuse_mode = 4
 params_line_width = 0.1
