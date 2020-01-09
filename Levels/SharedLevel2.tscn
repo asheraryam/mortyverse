@@ -23,7 +23,6 @@
 [ext_resource path="res://Levels/AntiWall.tscn" type="PackedScene" id=21]
 
 [sub_resource type="PhysicsMaterial" id=1]
-
 friction = 0.0
 
 [node name="SharedLevel" type="Node2D"]
@@ -139,7 +138,6 @@ position = Vector2( 2245.16, 37.3052 )
 BOX_INDEX = 14
 
 [node name="References" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -170,7 +168,6 @@ position = Vector2( 2174.63, 24.6573 )
 texture = ExtResource( 14 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( -455.009, 25.5781 )
 __meta__ = {
 "_edit_lock_": true
@@ -254,7 +251,6 @@ position = Vector2( 1785.45, 83.8191 )
 
 [node name="AntiWall14" parent="OtherObjects" instance=ExtResource( 21 )]
 position = Vector2( 1781.41, 83.8191 )
-
 
 [editable path="OtherObjects/AntiWall15"]
 
