@@ -13,7 +13,6 @@ before_script:
 linux:
   stage: export
   script:
-    - cd Godot
     - godot -v --export "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
     - test -e ../build/linux/$EXPORT_NAME.x86_64
   artifacts:
@@ -26,7 +25,6 @@ linux:
 windows:
   stage: export
   script:
-    - cd Godot
     - godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
     - test -e ../build/windows/$EXPORT_NAME.exe
   artifacts:
@@ -39,7 +37,6 @@ windows:
 mac:
   stage: export
   script:
-    - cd Godot
     - godot -v --export "Mac OSX" ../build/mac/$EXPORT_NAME.zip
     - test -e ../build/mac/$EXPORT_NAME.zip
   artifacts:
@@ -52,7 +49,6 @@ mac:
 web:
   stage: export
   script:
-    - cd Godot
     - godot -v --path Godot --export "HTML5" ../build/web/index.html
     - test -e ../build/web/index.html
   artifacts:
