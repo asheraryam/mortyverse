@@ -1,5 +1,6 @@
 image: asheraryam/godot-mono-ci:3.2.2-beta1-notmono
 
+# Cache imported asset files
 cache:
   key: import-assets
   paths:
