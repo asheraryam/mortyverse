@@ -23,7 +23,7 @@ before_script:
 import-files:
   stage: import
   script:
-    - godot --editor --quit
+    - godot -v --editor --quit
   only:
     - release
     
