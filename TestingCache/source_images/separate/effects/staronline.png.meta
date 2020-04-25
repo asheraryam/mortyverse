@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "89339679-740d-484f-9b26-06ad64748879",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 720,
+  "height": 1280,
+  "platformSettings": {},
+  "subMetas": {
+    "staronline": {
+      "ver": "1.0.4",
+      "uuid": "1a529c5e-1df9-4e00-aab5-28767d34ec53",
+      "rawTextureUuid": "89339679-740d-484f-9b26-06ad64748879",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -50.5,
+      "offsetY": 289,
+      "trimX": 234,
+      "trimY": 257,
+      "width": 151,
+      "height": 188,
+      "rawWidth": 720,
+      "rawHeight": 1280,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
