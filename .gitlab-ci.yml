@@ -19,13 +19,6 @@ before_script:
   - mkdir -v -p build/windows
   - mkdir -v -p build/mac
   - mkdir -v -p build/web
-
-import-files:
-  stage: import
-  script:
-    - godot -v --editor --quit
-  only:
-    - release
     
 export-project:
   stage: export
@@ -34,8 +27,6 @@ export-project:
     - godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe || true
     - godot -v --export "Mac OSX" ./build/mac/$EXPORT_NAME.zip || true
     - godot -v --export "HTML5" ./build/web/index.html || true
-  dependencies:
-    - import-files
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
