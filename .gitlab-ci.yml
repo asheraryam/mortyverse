@@ -1,5 +1,9 @@
 image: asheraryam/godot-mono-ci:3.2.2-beta1-notmono
 
+cache:
+  key: import-assets
+  paths:
+  - .import/
   
 stages:
   - export
@@ -21,10 +25,6 @@ export-project:
     - godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe || true
     - godot -v --export "Mac OSX" ./build/mac/$EXPORT_NAME.zip || true
     - godot -v --export "HTML5" ./build/web/index.html || true
-  cache:
-    key: import-assets
-    paths:
-    - .import/
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
