@@ -1,5 +1,11 @@
 image: asheraryam/godot-mono-ci:3.2.2-beta1-notmono
 
+# Cache modules in between jobs
+cache:
+  key: import-assets
+  paths:
+  - .import/
+  
 stages:
   - export
   - deploy
